@@ -1,8 +1,10 @@
 import {connect} from 'react-redux'
 import {
-  addWord
+  addWord,
+  changeLang
 } from '../redux/actionCreators'
 import AddWordForm from './AddWordForm'
+import Words from './Words'
 
 export const NewWord = connect(
   null,
@@ -12,3 +14,14 @@ export const NewWord = connect(
     }
   })
 )(AddWordForm)
+
+export const WordsContainer = connect(
+  state => ({
+    words: [...state]
+  }),
+  dispatch => ({
+    onChangeLang(id) {
+      dispatch(changeLang(id))
+    }
+  })
+)(Words)

@@ -18,10 +18,12 @@ const AddWordForm = ({onNewWord = f => f}) => {
       <input type='text'
         ref = {input => _english = input}
         placeholder="English"
+        required
       />
       <input type='text'
         ref = {input => _russian = input}
         placeholder="Russian"
+        required
       />
       <button>ADD</button>
     </form>
