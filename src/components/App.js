@@ -1,9 +1,14 @@
 import React from 'react'
-import {NewWord, WordsContainer} from './Containers'
+import {
+  NewWord,
+  WordsContainer,
+  ChangeLangContainer
+} from './Containers'
 
 const App = () =>
   <div className='wrapper'>
     <NewWord/>
+    <ChangeLangContainer/>
     <WordsContainer/>
   </div>
 

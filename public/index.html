@@ -6,7 +6,59 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Dictionary</title>
   <style>
+
+    body{
+      font-family: Arial;
+    }
     
+    .addWord-form, .changeLang-wrapper{
+      text-align: center;
+    }
+
+    .addWord-form>*{
+      padding: 10px;
+      font-size: 20px;
+      text-align: center;
+    }
+
+    .addWord-button{
+      cursor: pointer;
+    }
+
+    .changeLang-wrapper{
+      margin-top: 20px;
+    }
+
+    .changeLang-button{
+      padding: 5px 15px;
+      background-color: #fff;
+      border: 2px solid rgba(223, 220, 220, 0.719);
+      cursor: pointer;
+      font-size: 18px;
+      /* margin-right: 10px; */
+    }
+    .changeLang-button:nth-of-type(1) {
+      border-right: 0px;
+    }
+
+    .words-list{
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      padding: 0px;
+    }
+    .words-list>li{
+      padding: 15px;
+      margin-right: 10px;
+      margin-top: 10px;
+      border: 2px solid rgba(223, 220, 220, 0.719);
+      text-align: center;
+      cursor: pointer;
+      font-size: 20px;
+    }
+    .russian{
+      background-color: #cccccc3d;
+    }
   </style>
 </head>
 <body>

@@ -7,8 +7,14 @@ export const addWord = (eng, rus) =>
     rus
   })
 
-export const changeLang = (id) =>
+export const changeWord = (id) =>
+  ({
+    type: C.CHANGE_WORD,
+    id
+  })
+
+export const changeLang = (changeValue) => 
   ({
     type: C.CHANGE_LANGUAGE,
-    id
+    changeValue
   })

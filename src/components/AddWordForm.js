@@ -25,7 +25,7 @@ const AddWordForm = ({onNewWord = f => f}) => {
         placeholder="Russian"
         required
       />
-      <button>ADD</button>
+      <button className='addWord-button'>ADD</button>
     </form>
   )
 } 

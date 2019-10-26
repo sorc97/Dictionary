@@ -6,19 +6,25 @@ export const word = (state = {}, action) => {
     case C.ADD_WORD:
       return {
         id: v4(),
-        eng: action.eng,
-        rus: action.rus,
+        eng: action.eng.toUpperCase(),
+        rus: action.rus.toUpperCase(),
         currentLang: 'eng',
         comlexity: 'hard'
       }
 
-    case C.CHANGE_LANGUAGE:
+    case C.CHANGE_WORD:
       return (state.id !== action.id) ?
         state:
         {
           ...state,
           currentLang: (state.currentLang === 'eng') ? 'rus': 'eng'
         }
+
+    case C.CHANGE_LANGUAGE:
+      return {
+        ...state,
+        currentLang: action.changeValue
+      }
     
     default:
       return state
@@ -33,6 +39,7 @@ export const words = (state = [], action) => {
         word({}, action)
       ]
 
+    case C.CHANGE_WORD:
     case C.CHANGE_LANGUAGE:
       return state.map(item => word(item, action))
 

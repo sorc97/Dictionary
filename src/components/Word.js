@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Word = ({eng, rus, currentLang, onChangeLang}) =>
+const Word = ({eng, rus, currentLang, onChange}) =>
   <li 
     className = {(currentLang === 'eng') ? 'english' : 'russian'}
-    onClick = {onChangeLang}
+    onClick = {onChange}
   >
     {
       (currentLang === 'eng') ? eng: rus
