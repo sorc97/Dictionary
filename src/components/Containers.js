@@ -5,8 +5,9 @@ import {
   changeLang
 } from '../redux/actionCreators'
 import AddWordForm from './AddWordForm'
-import Words from './Words'
+// import Words from './Words'
 import ChangeLangForm from './ChangeLangForm'
+import Complexitites from './Complexities'
 
 export const NewWord = connect(
   null,
@@ -17,7 +18,7 @@ export const NewWord = connect(
   })
 )(AddWordForm)
 
-export const WordsContainer = connect(
+/* export const WordsContainer = connect(
   state => ({
     words: [...state]
   }),
@@ -26,7 +27,7 @@ export const WordsContainer = connect(
       dispatch(changeWord(id))
     }
   })
-)(Words)
+)(Words) */
 
 export const ChangeLangContainer = connect(
   null,
@@ -36,3 +37,14 @@ export const ChangeLangContainer = connect(
     }
   })
 )(ChangeLangForm)
+
+export const ComplexititesContainer = connect(
+  state => ({
+    words: [...state]
+  }),
+  dispatch => ({
+    onChange(id) {
+      dispatch(changeWord(id))
+    }
+  })
+)(Complexitites)

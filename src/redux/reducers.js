@@ -9,7 +9,7 @@ export const word = (state = {}, action) => {
         eng: action.eng.toUpperCase(),
         rus: action.rus.toUpperCase(),
         currentLang: 'eng',
-        comlexity: 'hard'
+        complexity: 'hard'
       }
 
     case C.CHANGE_WORD:
@@ -45,5 +45,11 @@ export const words = (state = [], action) => {
 
     default:
       return state
+  }
+}
+
+export const context = (state = {left: 0, top: 0, elemId: 0, isHidden: true}, action) => {
+  switch(action.type) {
+    
   }
 }

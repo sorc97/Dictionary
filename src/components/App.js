@@ -1,7 +1,7 @@
 import React from 'react'
 import {
   NewWord,
-  WordsContainer,
+  ComplexititesContainer,
   ChangeLangContainer
 } from './Containers'
 
@@ -9,7 +9,7 @@ const App = () =>
   <div className='wrapper'>
     <NewWord/>
     <ChangeLangContainer/>
-    <WordsContainer/>
+    <ComplexititesContainer/>
   </div>
 
 export default App
