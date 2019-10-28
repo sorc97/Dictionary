@@ -7,8 +7,18 @@
   <title>Dictionary</title>
   <style>
 
+    *{
+      box-sizing: border-box;
+    }
+
     body{
+      margin: 0px;
       font-family: Arial;
+      min-height: 100vh;
+    }
+
+    .wrapper{
+      padding: 10px 20px;
     }
     
     .addWord-form, .changeLang-wrapper{
@@ -37,15 +47,34 @@
       font-size: 18px;
       /* margin-right: 10px; */
     }
+
     .changeLang-button:focus{
       outline: none;
     }
+
     .changeLang-button:hover{
       background-color: #cccccc3d;
     }
+
     .changeLang-button:nth-of-type(1) {
       border-right: 0px;
     }
+
+    .complexity-caption{
+      position: relative;
+    }
+
+    /* .complexity-caption::before{
+      content: '';
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+      width: 20%;
+      min-width: 300px;
+      height: 3px;
+      background-color: #000;
+      background-color: #cccccc3d;
+    } */
 
     .words-list{
       display: flex;
@@ -53,21 +82,54 @@
       list-style: none;
       padding: 0px;
     }
+
     .words-list>li{
+      font-size: 20px;
+      text-align: center;
       padding: 25px;
       margin-right: 10px;
       margin-top: 10px;
       border: 2px solid rgba(223, 220, 220, 0.719);
-      text-align: center;
+      border-radius: 5px;
       cursor: pointer;
-      font-size: 20px;
       transition: all .4s ease;
     }
+    
     .words-list>li:hover{
       
     }
     .russian{
-      background-color: #cccccc3d;
+      background-color: #cccccc5e;
+    }
+
+    /* Context Menu */
+
+    .contextMenu-wrapper{
+      position: absolute;
+      display: none;
+    }
+    
+    .contextMenu-wrapper.active{
+      display: block;
+    }
+
+    .contextMenu-list{
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      border: 2px solid rgba(223, 220, 220, 0.719);
+      border-radius: 5px;
+      box-shadow: 0px 0px 12px #0000002e;
+    }
+
+    .contextMenu-item{
+      padding: 10px;
+      cursor: pointer;
+      background-color: #fff;
+    }
+
+    .contextMenu-item:hover{
+      background-color: rgb(232, 230, 230);;
     }
   </style>
 </head>

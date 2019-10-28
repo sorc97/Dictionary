@@ -1,9 +1,10 @@
 import React from 'react'
 
-const Word = ({eng = '', rus = '', currentLang = '', onChange = f=> f}) =>{
+const Word = ({eng = '', rus = '', currentLang = '', onChange = f=> f, onSetContext = f=> f}) =>{
 
-  const setContext = (e) => {
-    
+  const setContext = e => {
+    e.preventDefault();
+    onSetContext(e.pageX, e.pageY);
   }
 
   return(

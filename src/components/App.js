@@ -2,7 +2,8 @@ import React from 'react'
 import {
   NewWord,
   ComplexititesContainer,
-  ChangeLangContainer
+  ChangeLangContainer,
+  ContextMenuContainer
 } from './Containers'
 
 const App = () =>
@@ -10,6 +11,7 @@ const App = () =>
     <NewWord/>
     <ChangeLangContainer/>
     <ComplexititesContainer/>
+    <ContextMenuContainer/>
   </div>
 
 export default App

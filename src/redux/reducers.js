@@ -26,6 +26,14 @@ export const word = (state = {}, action) => {
         currentLang: action.changeValue
       }
     
+    case C.CHANGE_COMPLEXITY:
+      return (state.id !== action.id) ? 
+      state :
+      {
+        ...state,
+        complexity: action.complexity
+      }
+    
     default:
       return state
   }
@@ -41,15 +49,34 @@ export const words = (state = [], action) => {
 
     case C.CHANGE_WORD:
     case C.CHANGE_LANGUAGE:
-      return state.map(item => word(item, action))
+    case C.CHANGE_COMPLEXITY:
+      return state.map(item => word(item, action))  
+
+    case C.REMOVE_WORD:
+      return state.filter(item => item.id !== action.id)
 
     default:
       return state
   }
 }
 
-export const context = (state = {left: 0, top: 0, elemId: 0, isHidden: true}, action) => {
+export const contextMenu = (state = {left: 0, top: 0, elemId: 0, isHidden: true}, action) => {
   switch(action.type) {
-    
+    case C.SET_CONTEXT:
+      return {
+        left: action.left,
+        top: action.top,
+        elemId: action.id,
+        isHidden: false
+      }
+
+    case C.HIDE_CONTEXT:
+      return {
+        ...state,
+        isHidden: true
+      }
+
+    default:
+      return state;
   }
 }
