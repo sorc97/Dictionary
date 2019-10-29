@@ -6,12 +6,16 @@ import {
   setContext,
   changeComplexity,
   removeWord,
-  hideContext
+  hideContext,
+  hideModal,
+  showModal,
+  addPhrase
 } from '../redux/actionCreators'
 import AddWordForm from './AddWordForm'
 import ChangeLangForm from './ChangeLangForm'
 import Complexitites from './Complexities'
 import ContextMenu from './ContextMenu'
+import PhrasesModal from './PhrasesModal'
 
 //Add Word Form
 export const NewWord = connect(
@@ -70,6 +74,24 @@ export const ContextMenuContainer = connect(
     },
     onHideMenu() {
       dispatch(hideContext())
+    },
+    onShowModal() {
+      dispatch(showModal())
     }
   })
 )(ContextMenu)
+
+export const PhrasesContainer = connect(
+  state => ({
+    word: state.words.filter(item => item.id === state.contextMenu.elemId)[0],
+    isModalHidden: state.isModalHidden
+  }),
+  dispatch => ({
+    onHideModal() {
+      dispatch(hideModal())
+    },
+    onNewPhrase(phrase, id) {
+      dispatch(addPhrase(phrase, id))
+    }
+  })
+)(PhrasesModal)

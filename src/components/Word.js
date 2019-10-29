@@ -7,7 +7,7 @@ class Word extends Component{
   }
 
   componentDidUpdate() {
-    console.log('Word was UPDATE');
+    // console.log('Word was UPDATE');
   }
 
   shouldComponentUpdate(newState) {

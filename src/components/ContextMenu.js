@@ -22,7 +22,6 @@ class ContextMenu extends Component {
   toggleContext() {
     const {left, top, isHidden} = this.props.contextProps;
     const {_menu} = this.refs; 
-    console.log(isHidden);
 
     if(isHidden) {
       window.removeEventListener('click', this.hideMenu);
@@ -36,7 +35,7 @@ class ContextMenu extends Component {
   }
 
   handleSelect(select) {
-    const {onChangeComplexity, onRemove, contextProps} = this.props;
+    const {onChangeComplexity, onRemove, onShowModal, contextProps} = this.props;
     const {elemId} = contextProps;
     console.log(select)
     
@@ -51,6 +50,10 @@ class ContextMenu extends Component {
       
       case "add to medium":
         onChangeComplexity('medium', elemId)
+      break;
+
+      case "phrases":
+          onShowModal()
       break;
 
       default:

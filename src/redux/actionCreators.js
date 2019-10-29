@@ -44,3 +44,20 @@ export const changeComplexity = (newComplexity, id) =>
     complexity: newComplexity,
     id
   })
+
+export const showModal = () =>
+  ({
+    type: C.SHOW_MODAL
+  })
+
+export const hideModal = () =>
+  ({
+    type: C.HIDE_MODAL
+  })
+
+export const addPhrase = (phrase, id) => 
+  ({
+    type: C.ADD_PHRASE,
+    phrase, 
+    id
+  })

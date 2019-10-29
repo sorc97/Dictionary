@@ -9,7 +9,8 @@ export const word = (state = {}, action) => {
         eng: action.eng.toUpperCase(),
         rus: action.rus.toUpperCase(),
         currentLang: 'eng',
-        complexity: 'hard'
+        complexity: 'hard',
+        phrases: []
       }
 
     case C.CHANGE_WORD:
@@ -33,6 +34,14 @@ export const word = (state = {}, action) => {
         ...state,
         complexity: action.complexity
       }
+
+    case C.ADD_PHRASE:
+      return (state.id !== action.id) ?
+      state: 
+      {
+        ...state,
+        phrases: [...state.phrases, action.phrase]
+      }
     
     default:
       return state
@@ -50,6 +59,7 @@ export const words = (state = [], action) => {
     case C.CHANGE_WORD:
     case C.CHANGE_LANGUAGE:
     case C.CHANGE_COMPLEXITY:
+    case C.ADD_PHRASE:
       return state.map(item => word(item, action))  
 
     case C.REMOVE_WORD:
@@ -75,6 +85,19 @@ export const contextMenu = (state = {left: 0, top: 0, elemId: 0, isHidden: true}
         ...state,
         isHidden: true
       }
+
+    default:
+      return state;
+  }
+}
+
+export const isModalHidden = (state = true, action) => {
+  switch(action.type) {
+    case C.SHOW_MODAL:
+      return false;
+    
+    case C.HIDE_MODAL:
+      return true;
 
     default:
       return state;

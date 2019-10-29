@@ -63,6 +63,7 @@
 
     .complexity-caption{
       position: relative;
+      border-bottom: 2px solid #2196F3;
     }
 
     /* .complexity-caption::before{
@@ -132,6 +133,78 @@
     .contextMenu-item:hover{
       background-color: rgb(232, 230, 230);;
     }
+
+    /* Modal */
+
+    .phrases-modal{
+      position: fixed;
+      left: 0px;
+      top: 0px;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 2;
+      display: none;
+    }
+    .phrases-modal.active{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .phrases-content{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      width: 65%;
+      height: 80%;
+      min-width: 300px;
+      min-height: 400px;
+      max-width: 1200px;
+      /* max-height: 600px; */
+
+      border: 2px solid black;
+      border-radius: 10px;
+
+      background-color: #fff;
+      padding: 20px;
+
+      overflow-y: auto;
+      z-index: 3;
+    }
+
+    .phrases-list{
+      list-style: none;
+      padding: 0;
+      text-align: center;
+    }
+
+    .phrases-add-form{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding-bottom: 20px;
+    }
+
+    .phrases-add-form>input[type='text']{
+      padding: 10px;
+      font-size: 18px;
+      flex-grow: 1;
+      max-width: 600px;
+    }
+
+    .phrases-item{
+      font-size: 20px;
+      padding: 15px 0px;
+      border-bottom: 1px solid #2196F3;
+      line-height: 1.5em;
+    }
+
+    .phrases-add-form button{
+      cursor: pointer;
+    }
+    
   </style>
 </head>
 <body>

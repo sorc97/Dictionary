@@ -3,7 +3,8 @@ import {
   NewWord,
   ComplexititesContainer,
   ChangeLangContainer,
-  ContextMenuContainer
+  ContextMenuContainer,
+  PhrasesContainer
 } from './Containers'
 
 const App = () =>
@@ -12,6 +13,7 @@ const App = () =>
     <ChangeLangContainer/>
     <ComplexititesContainer/>
     <ContextMenuContainer/>
+    <PhrasesContainer/>
   </div>
 
 export default App
