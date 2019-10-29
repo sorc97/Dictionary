@@ -1,23 +1,43 @@
-import React from 'react'
+import React, {Component} from 'react'
 
-const Word = ({eng = '', rus = '', currentLang = '', onChange = f=> f, onSetContext = f=> f}) =>{
+class Word extends Component{
+  constructor() {
+    super();
+    this.setContext = this.setContext.bind(this);
+  }
 
-  const setContext = e => {
+  componentDidUpdate() {
+    console.log('Word was UPDATE');
+  }
+
+  shouldComponentUpdate(newState) {
+    const {currentLang} = this.props;
+
+    return (currentLang === newState.currentLang) ? false: true;
+  }
+
+  setContext(e) {
+    const {onSetContext} = this.props;
+    
     e.preventDefault();
     onSetContext(e.pageX, e.pageY);
   }
 
-  return(
-    <li 
-      className={(currentLang === 'eng') ? 'english' : 'russian'}
-      onClick={onChange}
-      onContextMenu={setContext}
-    >
-      {
-        (currentLang === 'eng') ? eng: rus
-      }
-    </li>
-  )
+  render() {
+    const {eng, rus, currentLang, onChange} = this.props;
+
+    return(
+      <li 
+        className={(currentLang === 'eng') ? 'english' : 'russian'}
+        onClick={onChange}
+        onContextMenu={this.setContext}
+      >
+        {
+          (currentLang === 'eng') ? eng: rus
+        }
+      </li>
+    )
+  }
 }
 
 export default Word

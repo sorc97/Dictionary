@@ -57,6 +57,7 @@ export const ContextMenuContainer = connect(
       "Add to easy",
       "Add to medium",
       "Add to hard",
+      "Phrases",
       "Remove"
     ]
   }),
