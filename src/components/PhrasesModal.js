@@ -30,7 +30,7 @@ class PhrasesModal extends React.Component{
   }
 
   render() {
-    const {word, isModalHidden, onNewPhrase} = this.props;
+    const {word, isModalHidden, onNewPhrase, onHideModal} = this.props;
 
     return(
       <div 
@@ -38,7 +38,8 @@ class PhrasesModal extends React.Component{
         onClick={this.hideModal}
       >
         <div className="phrases-content">
-          <h1>{word.eng} - {word.rus}</h1>
+          <h1><span>{word.eng}</span> <br/> <span>{word.rus}</span></h1>
+          <div onClick={onHideModal} className="phrases-content-close">&times;</div>
           <AddPhraseForm onNewPhrase={phrase => onNewPhrase(phrase, word.id)}/>
           {
             (!Object.keys(word).length) ?

@@ -153,6 +153,7 @@
     }
     
     .phrases-content{
+      position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -164,14 +165,48 @@
       max-width: 1200px;
       /* max-height: 600px; */
 
-      border: 2px solid black;
+      /* border: 2px solid black; */
       border-radius: 10px;
 
       background-color: #fff;
-      padding: 20px;
+      padding: 10px 0px;
 
-      overflow-y: auto;
+      /* overflow-y: auto;
+      overflow-x: hidden; */
       z-index: 3;
+    }
+
+    .phrases-content>h1{
+      text-align: center;
+    }
+    
+    .phrases-content>h1>span:nth-of-type(1) {
+      border-bottom: 2px solid #2196F3;
+      margin-bottom: 20px;
+      line-height: 1.5em;
+    }
+
+    .phrases-list-wrapper{
+      overflow: auto;
+      width: 100%;
+      padding: 0px 20px;
+    }
+
+    .phrases-content-close{
+      position: absolute;
+      right: -20px;
+      top: -20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 2px solid black;
+      background-color: #fff;
+      border-radius: 50%;
+      font-size: 30px;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      z-index: 4;
     }
 
     .phrases-list{
@@ -184,7 +219,7 @@
       width: 100%;
       display: flex;
       justify-content: center;
-      padding-bottom: 20px;
+      padding: 20px;
     }
 
     .phrases-add-form>input[type='text']{
@@ -197,14 +232,34 @@
     .phrases-item{
       font-size: 20px;
       padding: 15px 0px;
-      border-bottom: 1px solid #2196F3;
+      /* border-bottom: 1px solid #2196F3; */
+      border-bottom: 2px solid #8497a74f;
       line-height: 1.5em;
+    }
+
+    .phrases-item:hover{
+      background-color: rgba(200, 200, 200, 0.32);
+    }
+    
+    .phrases-item>span{
+      /* border-bottom: 1px solid #2196F3; */
     }
 
     .phrases-add-form button{
       cursor: pointer;
     }
-    
+
+    ::-webkit-scrollbar{
+			width: 6px;
+      background-color: #d4d4d4;
+      border-radius: 10px;      
+		}
+
+		::-webkit-scrollbar-thumb{
+			background-color: #2196F3;
+      border-radius: 10px;
+    };
+
   </style>
 </head>
 <body>
