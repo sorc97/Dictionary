@@ -16,6 +16,7 @@ import ChangeLangForm from './ChangeLangForm'
 import Complexitites from './Complexities'
 import ContextMenu from './ContextMenu'
 import PhrasesModal from './PhrasesModal'
+import {findById} from '../lib/array-helpers'
 
 //Add Word Form
 export const NewWord = connect(
@@ -83,7 +84,7 @@ export const ContextMenuContainer = connect(
 
 export const PhrasesContainer = connect(
   state => ({
-    word: state.words.filter(item => item.id === state.contextMenu.elemId)[0],
+    word: findById(state.words, state.contextMenu.elemId),
     isModalHidden: state.isModalHidden
   }),
   dispatch => ({
