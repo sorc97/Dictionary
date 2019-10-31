@@ -7,8 +7,6 @@ import {
   changeComplexity,
   removeWord,
   hideContext,
-  hideModal,
-  showModal,
   addPhrase
 } from '../redux/actionCreators'
 import AddWordForm from './AddWordForm'
@@ -75,22 +73,15 @@ export const ContextMenuContainer = connect(
     },
     onHideMenu() {
       dispatch(hideContext())
-    },
-    onShowModal() {
-      dispatch(showModal())
     }
   })
 )(ContextMenu)
 
 export const PhrasesContainer = connect(
-  state => ({
-    word: findById(state.words, state.contextMenu.elemId),
-    isModalHidden: state.isModalHidden
+  ({words}, {match}) => ({
+    word: findById(words, match.params.id),
   }),
   dispatch => ({
-    onHideModal() {
-      dispatch(hideModal())
-    },
     onNewPhrase(phrase, id) {
       dispatch(addPhrase(phrase, id))
     }

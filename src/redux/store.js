@@ -1,5 +1,5 @@
 import {createStore, combineReducers} from 'redux'
-import {words, contextMenu, isModalHidden} from './reducers'
+import {words, contextMenu} from './reducers'
 
 const initial = {
   words: [
@@ -14,7 +14,7 @@ const initial = {
   ]
 }
 
-const reducers = combineReducers({words, contextMenu, isModalHidden})
+const reducers = combineReducers({words, contextMenu})
 const store = createStore(reducers, initial);
 
 console.log(store.getState());

@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {withRouter} from 'react-router-dom'
 
 class ContextMenu extends Component {
   constructor(props) {
@@ -35,7 +36,7 @@ class ContextMenu extends Component {
   }
 
   handleSelect(select) {
-    const {onChangeComplexity, onRemove, onShowModal, contextProps} = this.props;
+    const {onChangeComplexity, onRemove, contextProps, history} = this.props;
     const {elemId} = contextProps;
     console.log(select)
     
@@ -53,7 +54,7 @@ class ContextMenu extends Component {
       break;
 
       case "phrases":
-          onShowModal()
+          history.push(`/phrases/${elemId}`)
       break;
 
       default:
@@ -69,9 +70,7 @@ class ContextMenu extends Component {
     return(
       <div 
         className= {(isHidden) ? 'contextMenu-wrapper': 'contextMenu-wrapper active'} 
-        // className='contextMenu-wrapper'
         ref='_menu'
-        // hidden
       >
         <ul className='contextMenu-list'>
           {
@@ -91,4 +90,4 @@ class ContextMenu extends Component {
   }
 }
  
-export default ContextMenu
+export default withRouter(ContextMenu)

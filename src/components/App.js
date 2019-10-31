@@ -6,14 +6,17 @@ import {
   ContextMenuContainer,
   PhrasesContainer
 } from './Containers'
+import {Route} from 'react-router-dom'
 
 const App = () =>
-  <div className='wrapper'>
-    <NewWord/>
-    <ChangeLangContainer/>
-    <ComplexititesContainer/>
-    <ContextMenuContainer/>
-    <PhrasesContainer/>
-  </div>
+  <Route path='/' component={() => 
+    <div className='wrapper'>
+      <NewWord/>
+      <ChangeLangContainer/>
+      <ComplexititesContainer/>
+      <ContextMenuContainer/>
+      <Route path='/phrases/:id' component={PhrasesContainer}/>
+    </div>
+  }/>
 
 export default App
