@@ -18,7 +18,7 @@
     }
 
     .wrapper{
-      padding: 10px 20px;
+      padding: 20px;
     }
     
     .addWord-form, .changeLang-wrapper{
@@ -66,31 +66,34 @@
       border-bottom: 2px solid #2196F3;
     }
 
-    /* .complexity-caption::before{
-      content: '';
-      position: absolute;
-      bottom: 0px;
-      left: 0px;
-      width: 20%;
-      min-width: 300px;
-      height: 3px;
-      background-color: #000;
-      background-color: #cccccc3d;
-    } */
+    .complexity-empty{
+      margin: 0;
+      font-size: 25px;
+      text-transform: uppercase;
+      color: #80808099;
+      text-align: center;
+      padding: 40px 0px;
+      background: aliceblue;
+      border-radius: 5px;
+    }
 
     .words-list{
       display: flex;
       flex-wrap: wrap;
       list-style: none;
-      padding: 0px;
+      padding: 20px 0px;
+      margin: 0px;
+      background: aliceblue;
+      border-radius: 5px;
     }
 
     .words-list>li{
       font-size: 20px;
       text-align: center;
       padding: 25px;
-      margin-right: 10px;
-      margin-top: 10px;
+      /* margin-right: 10px; */
+      /* margin-top: 10px; */
+      margin: 10px;
       border: 2px solid rgba(223, 220, 220, 0.719);
       border-radius: 5px;
       cursor: pointer;
@@ -100,8 +103,13 @@
     .words-list>li:hover{
       
     }
+    .english{
+      background-color: #fff;
+    }
+
     .russian{
-      background-color: #cccccc5e;
+      /* background-color: #cccccc5e; */
+      background-color: #f0f0f0;;
     }
 
     /* Context Menu */
@@ -144,9 +152,6 @@
       width: 100%;
       background-color: rgba(0, 0, 0, 0.5);
       z-index: 2;
-      display: none;
-    }
-    .phrases-modal.active{
       display: flex;
       justify-content: center;
       align-items: center;
@@ -228,11 +233,24 @@
       padding: 20px;
     }
 
-    .phrases-add-form>input[type='text']{
+    .phrases-add-form>input[name='addPhrase']{
       padding: 10px;
       font-size: 18px;
       flex-grow: 1;
       max-width: 600px;
+      border: 2px solid #2196F3;
+      border-right: none;
+    }
+
+    .phrases-add-form>input[name='addPhrase']:focus {
+      outline: none;
+    }
+
+    .phrases-add-form>button{
+      border: 2px solid #2196F3;
+      border-left: none;
+      background: #2196F3;
+      color: white;
     }
 
     .phrases-item{

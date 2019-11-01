@@ -90,16 +90,3 @@ export const contextMenu = (state = {left: 0, top: 0, elemId: 0, isHidden: true}
       return state;
   }
 }
-
-export const isModalHidden = (state = true, action) => {
-  switch(action.type) {
-    case C.SHOW_MODAL:
-      return false;
-    
-    case C.HIDE_MODAL:
-      return true;
-
-    default:
-      return state;
-  }
-}

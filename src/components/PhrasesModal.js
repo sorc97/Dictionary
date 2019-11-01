@@ -1,71 +1,42 @@
 import React from 'react'
 import AddPhraseForm from './AddPhraseForm'
 import PhrasesList from './PhrasesList'
-import PropTypes from 'prop-types'
+import {withRouter} from 'react-router-dom'
 
-class PhrasesModal extends React.Component{
-  constructor() {
-    super();
 
-    this.hideModal = this.hideModal.bind(this);
-  }
+const PhrasesModal = ({word = {}, onNewPhrase = f=> f, history}) => {
 
-  shouldComponentUpdate(nextProps) {
-    const {isModalHidden} = this.props;
-
-    return (nextProps.isModalHidden && isModalHidden) ? false: true;
-  }
-
-  componentDidUpdate() {
-    console.log("Modal was UPDATE");
-  }
-
-  hideModal(e){
+  const hideModal = e => {
     let target = e.target;
-    const {onHideModal} = this.props;
 
     if(!target.classList.contains("phrases-modal")) return;
 
-    onHideModal();
+    history.goBack();
   }
 
-  render() {
-    const {word, isModalHidden, onNewPhrase, onHideModal} = this.props;
-
-    return(
-      <div 
-        className={(isModalHidden) ? "phrases-modal": "phrases-modal active"} 
-        onClick={this.hideModal}
-      >
-        <div className="phrases-content">
-          <h1><span>{word.eng}</span> <br/> <span>{word.rus}</span></h1>
-          <div onClick={onHideModal} className="phrases-content-close">&times;</div>
-          <AddPhraseForm onNewPhrase={phrase => onNewPhrase(phrase, word.id)}/>
-          {
-            (!Object.keys(word).length) ?
-              "" :
-              (!word.phrases.length) ? 
-                <p>No phrases in the list</p> :
-                <PhrasesList phrases={word.phrases}/>
-          }
+  return(
+    <div 
+      className='phrases-modal'
+      onClick={hideModal}
+    >
+      <div className="phrases-content">
+        <h1><span>{word.eng}</span> <br/> <span>{word.rus}</span></h1>
+        <div onClick={()=> history.goBack()} 
+          className="phrases-content-close">
+            &times;
         </div>
+        <AddPhraseForm 
+          onNewPhrase={phrase => onNewPhrase(phrase, word.id)}/>
+        {
+          (!Object.keys(word).length) ?
+            "" :
+            (!word.phrases.length) ? 
+              <p>No phrases in the list</p> :
+              <PhrasesList phrases={word.phrases}/>
+        }
       </div>
-    )
-  }
-}
-
-PhrasesModal.propTypes = {
-  word: PropTypes.object,
-  isModalHidden: PropTypes.bool,
-  onHideModal: PropTypes.func,
-  onNewPhrase: PropTypes.func
-}
-
-PhrasesModal.defaultProps = {
-  word: {},
-  isModalHidden: true,
-  onHideModal: f => f,
-  onNewPhrase: f => f
+    </div>
+  )
 }
   
-export default PhrasesModal
+export default withRouter(PhrasesModal)

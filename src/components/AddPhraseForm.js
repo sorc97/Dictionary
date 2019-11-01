@@ -15,6 +15,7 @@ const AddPhraseForm = ({onNewPhrase = f => f}) => {
     <form onSubmit={submit} className='phrases-add-form'>
       <input 
         type='text' 
+        name='addPhrase'
         placeholder='Add phrase'
         ref={input => _phrase = input}
         required
