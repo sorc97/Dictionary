@@ -7,7 +7,8 @@ import {
   changeComplexity,
   removeWord,
   hideContext,
-  addPhrase
+  addPhrase,
+  setContextSize
 } from '../redux/actionCreators'
 import AddWordForm from './AddWordForm'
 import ChangeLangForm from './ChangeLangForm'
@@ -39,7 +40,8 @@ export const ChangeLangContainer = connect(
 //Complexities and Words
 export const ComplexititesContainer = connect(
   state => ({
-    words: [...state.words]
+    words: [...state.words],
+    contextMenuSize: {...state.contextMenu.size}
   }),
   dispatch => ({
     onChange(id) {
@@ -73,6 +75,9 @@ export const ContextMenuContainer = connect(
     },
     onHideMenu() {
       dispatch(hideContext())
+    },
+    onSetContextSize(height, width) {
+      dispatch(setContextSize(height, width))
     }
   })
 )(ContextMenu)

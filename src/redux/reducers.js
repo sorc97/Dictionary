@@ -70,10 +70,23 @@ export const words = (state = [], action) => {
   }
 }
 
-export const contextMenu = (state = {left: 0, top: 0, elemId: 0, isHidden: true}, action) => {
+export const contextMenu = (
+  state = {
+    left: 0, 
+    top: 0, 
+    elemId: 0,
+    size: {
+      height: 0,
+      width: 0
+    },
+    isHidden: true
+  }, 
+  action
+) => {
   switch(action.type) {
     case C.SET_CONTEXT:
       return {
+        ...state,
         left: action.left,
         top: action.top,
         elemId: action.id,
@@ -84,6 +97,15 @@ export const contextMenu = (state = {left: 0, top: 0, elemId: 0, isHidden: true}
       return {
         ...state,
         isHidden: true
+      }
+
+    case C.SET_CONTEXT_SIZE:
+      return {
+        ...state,
+        size: {
+          height: action.height,
+          width: action.width
+        }
       }
 
     default:

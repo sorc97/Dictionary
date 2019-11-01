@@ -33,6 +33,13 @@ export const setContext = (left, top, id) =>
     id
   })
 
+export const setContextSize = (height, width) =>
+  ({
+    type: C.SET_CONTEXT_SIZE,
+    height,
+    width
+  })
+
 export const hideContext = () =>
   ({
     type: C.HIDE_CONTEXT

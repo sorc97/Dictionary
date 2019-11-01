@@ -1,7 +1,7 @@
 import React from 'react'
 import Words from './Words'
 
-const Complexity = ({title, onChange = f => f, onSetContext = f=> f, words}) => {
+const Complexity = ({title, onChange = f => f, onSetContext = f=> f, words, contextMenuSize}) => {
   const filteredWords = words.filter(item => item.complexity === title);
 
   return(
@@ -16,6 +16,7 @@ const Complexity = ({title, onChange = f => f, onSetContext = f=> f, words}) => 
           onChange = {onChange}
           onSetContext = {onSetContext}
           words = {filteredWords}
+          contextMenuSize={contextMenuSize}
         />
       }
     </div>
