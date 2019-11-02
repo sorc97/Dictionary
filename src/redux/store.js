@@ -9,6 +9,8 @@ const store = createStore(
     {}
 );
 
+window.store = store;
+
 store.subscribe(() => {
   localStorage['redux-store'] = JSON.stringify({
     words: store.getState().words
