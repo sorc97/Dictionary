@@ -12,7 +12,14 @@ class ContextMenu extends Component {
 
   componentDidUpdate() {
     this.toggleContext();
-    // console.log("UPDATE")
+    // console.log("UPDATE");
+  }
+
+  componentDidMount() {
+    const {onSetContextSize} = this.props;
+    const {_menu} = this.refs;
+    
+    onSetContextSize(_menu.offsetHeight, _menu.offsetWidth);
   }
 
   hideMenu() {

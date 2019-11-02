@@ -17,10 +17,27 @@ class Word extends Component{
   }
 
   setContext(e) {
-    const {onSetContext} = this.props;
+    const {onSetContext, contextMenuSize} = this.props;
+    const coords = {
+      x: e.clientX,
+      y: e.clientY
+    }
+    
+    const windowSize = {
+      x: window.innerWidth,
+      y: window.innerHeight
+    }
+
+    /* let newTopCoords = coords.y + window.pageYOffset;
+    let newLeftCoords = coords.x + window.pageXOffset; */
+    let newTopCoords = e.pageY;
+    let newLeftCoords = e.pageX;
+
+    if(coords.y + contextMenuSize.height > windowSize.y) newTopCoords -= contextMenuSize.height;
+    if(coords.x + contextMenuSize.width > windowSize.x) newLeftCoords -= contextMenuSize.width;
     
     e.preventDefault();
-    onSetContext(e.pageX, e.pageY);
+    onSetContext(newLeftCoords, newTopCoords);
   }
 
   render() {
