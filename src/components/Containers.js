@@ -15,6 +15,7 @@ import ChangeLangForm from './ChangeLangForm'
 import Complexitites from './Complexities'
 import ContextMenu from './ContextMenu'
 import PhrasesModal from './PhrasesModal'
+import SearchForm from './SearchForm'
 import {findById} from '../lib/array-helpers'
 
 //Add Word Form
@@ -26,6 +27,12 @@ export const NewWord = connect(
     }
   })
 )(AddWordForm)
+
+export const Search = connect(
+  state => ({
+    words: [...state.words]
+  })
+)(SearchForm)
 
 //Change Language Form
 export const ChangeLangContainer = connect(

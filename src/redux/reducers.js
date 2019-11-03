@@ -6,8 +6,8 @@ export const word = (state = {}, action) => {
     case C.ADD_WORD:
       return {
         id: v4(),
-        eng: action.eng.toUpperCase(),
-        rus: action.rus.toUpperCase(),
+        eng: action.eng.toLowerCase(),
+        rus: action.rus.toLowerCase(),
         currentLang: 'eng',
         complexity: 'hard',
         phrases: []

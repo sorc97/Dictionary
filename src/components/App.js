@@ -4,18 +4,29 @@ import {
   ComplexititesContainer,
   ChangeLangContainer,
   ContextMenuContainer,
-  PhrasesContainer
+  PhrasesContainer,
+  Search
 } from './Containers'
-import {Route} from 'react-router-dom'
+// import Modal from './Modal'
+import ModalError from './ModalError'
+import {Route, Switch} from 'react-router-dom'
 
 const App = () =>
   <Route path='/' component={() => 
     <div className='wrapper'>
       <NewWord/>
+      <Search/>
       <ChangeLangContainer/>
       <ComplexititesContainer/>
       <ContextMenuContainer/>
-      <Route path='/phrases/:id' component={PhrasesContainer}/>
+      <Switch>
+        <Route 
+          path='/phrases/error' 
+          component={({history})=> 
+            <ModalError history={history} title='Word not found'/>}
+        />
+        <Route path='/phrases/:id' component={PhrasesContainer}/>
+      </Switch>
     </div>
   }/>
 
