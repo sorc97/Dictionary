@@ -5,10 +5,17 @@ import {withRouter} from 'react-router-dom'
 import Modal from './Modal'
 import ModalError from './ModalError'
 
-const PhrasesModal = ({word = {}, onNewPhrase = f=> f, history}) => 
+const PhrasesModal = ({
+  word = {}, 
+  onNewPhrase = f=> f, 
+  onRemovePhrase = f=> f, 
+  history 
+}) => 
   (!Object.keys(word).length) ?
-    <ModalError title="Word not found" history={history}/> :
-    <Modal onHideModal={()=> history.goBack()}>
+    <ModalError 
+      title="Word not found" 
+      history={history}/> :
+    <Modal onHideModal={()=> history.replace('/')}>
       <React.Fragment>
         <h1 className="phrases-header">
           <span>{word.eng}</span> 
@@ -22,7 +29,9 @@ const PhrasesModal = ({word = {}, onNewPhrase = f=> f, history}) =>
             "" :
             (!word.phrases.length) ? 
               <p>No phrases in the list</p> :
-              <PhrasesList phrases={word.phrases}/>
+              <PhrasesList 
+                phrases={word.phrases}
+                onRemovePhrase={(phraseIndex) => onRemovePhrase(word.id, phraseIndex)}/>
         }
       </React.Fragment>
     </Modal>

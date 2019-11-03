@@ -58,3 +58,10 @@ export const addPhrase = (phrase, id) =>
     phrase, 
     id
   })
+
+export const removePhrase = (wordId, phraseIndex) => 
+  ({
+    type: C.REMOVE_PHRASE,
+    wordId,
+    phraseIndex
+  })

@@ -8,7 +8,8 @@ import {
   removeWord,
   hideContext,
   addPhrase,
-  setContextSize
+  setContextSize,
+  removePhrase
 } from '../redux/actionCreators'
 import AddWordForm from './AddWordForm'
 import ChangeLangForm from './ChangeLangForm'
@@ -96,6 +97,9 @@ export const PhrasesContainer = connect(
   dispatch => ({
     onNewPhrase(phrase, id) {
       dispatch(addPhrase(phrase, id))
+    },
+    onRemovePhrase(wordId, phraseIndex) {
+      dispatch(removePhrase(wordId, phraseIndex))
     }
   })
 )(PhrasesModal)

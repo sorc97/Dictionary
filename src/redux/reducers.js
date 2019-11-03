@@ -37,11 +37,19 @@ export const word = (state = {}, action) => {
 
     case C.ADD_PHRASE:
       return (state.id !== action.id) ?
-      state: 
-      {
-        ...state,
-        phrases: [...state.phrases, action.phrase]
-      }
+        state: 
+        {
+          ...state,
+          phrases: [...state.phrases, action.phrase]
+        }
+
+    case C.REMOVE_PHRASE:
+        return (state.id !== action.wordId) ?
+          state:
+          {
+            ...state,
+            phrases: state.phrases.filter((phrase, i) => i !== action.phraseIndex)
+          }
     
     default:
       return state
@@ -60,6 +68,7 @@ export const words = (state = [], action) => {
     case C.CHANGE_LANGUAGE:
     case C.CHANGE_COMPLEXITY:
     case C.ADD_PHRASE:
+    case C.REMOVE_PHRASE:
       return state.map(item => word(item, action))  
 
     case C.REMOVE_WORD:
