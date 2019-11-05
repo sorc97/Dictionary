@@ -1,6 +1,7 @@
 import React from 'react'
 import {findByTitle} from '../lib/array-helpers'
 import {withRouter} from 'react-router-dom'
+import './stylesheets/SearchForm.css'
 
 const SearchForm = ({words, history}) => {
   let _serchQuery;
@@ -24,7 +25,8 @@ const SearchForm = ({words, history}) => {
         type='text' 
         placeholder='Search word' 
         ref={input => _serchQuery = input}
-        className='search-text'/>
+        className='search-text'
+      />
       <button className='search-button'>Search</button>
     </form>
   )

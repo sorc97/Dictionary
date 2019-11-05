@@ -1,4 +1,5 @@
 import React from 'react'
+import './stylesheets/ChangeLangForm.css'
 
 const ChangeLangForm = ({onChangeLang = f => f}) => 
   <div className = 'changeLang-wrapper'>

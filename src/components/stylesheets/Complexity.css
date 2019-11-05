@@ -1,0 +1,15 @@
+.complexity-caption{
+  position: relative;
+  border-bottom: 2px solid #2196F3;
+}
+
+.complexity-empty{
+  margin: 0;
+  font-size: 25px;
+  text-transform: uppercase;
+  color: #80808099;
+  text-align: center;
+  padding: 40px 0px;
+  background: aliceblue;
+  border-radius: 5px;
+}

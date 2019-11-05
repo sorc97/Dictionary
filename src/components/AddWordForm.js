@@ -1,4 +1,5 @@
 import React from 'react'
+import './stylesheets/AddWordForm.css'
 
 const AddWordForm = ({onNewWord = f => f}) => {
   let _english, _russian;

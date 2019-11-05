@@ -1,0 +1,9 @@
+.words-list{
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 20px 0px;
+  margin: 0px;
+  background: aliceblue;
+  border-radius: 5px;
+}

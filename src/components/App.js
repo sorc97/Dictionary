@@ -7,16 +7,16 @@ import {
   PhrasesContainer,
   Search
 } from './Containers'
-// import Modal from './Modal'
 import ModalError from './ModalError'
 import {Route, Switch} from 'react-router-dom'
+import './stylesheets/App.css'
 
 const App = () =>
   <Route path='/' component={() => 
     <div className='wrapper'>
       <NewWord/>
-      <Search/>
       <ChangeLangContainer/>
+      <Search/>
       <ComplexititesContainer/>
       <ContextMenuContainer/>
       <Switch>

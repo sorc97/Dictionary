@@ -1,14 +1,8 @@
 import React, {Component} from 'react'
 import {withRouter} from 'react-router-dom'
+import './stylesheets/ContextMenu.css'
 
 class ContextMenu extends Component {
-  constructor(props) {
-    super(props);
-
-    this.toggleContext = this.toggleContext.bind(this);
-    this.handleSelect = this.handleSelect.bind(this);
-    this.hideMenu = this.hideMenu.bind(this);
-  }
 
   componentDidUpdate() {
     this.toggleContext();
@@ -22,12 +16,11 @@ class ContextMenu extends Component {
     onSetContextSize(_menu.offsetHeight, _menu.offsetWidth);
   }
 
-  hideMenu() {
+  hideMenu = () => {
     this.props.onHideMenu();
-    // console.log('WAS HIDDEN')
   }
 
-  toggleContext() {
+  toggleContext = () => {
     const {left, top, isHidden} = this.props.contextProps;
     const {_menu} = this.refs; 
 
@@ -42,7 +35,7 @@ class ContextMenu extends Component {
     window.addEventListener('click', this.hideMenu);
   }
 
-  handleSelect(select) {
+  handleSelect = select => {
     const {onChangeComplexity, onRemove, contextProps, history} = this.props;
     const {elemId} = contextProps;
     console.log(select)

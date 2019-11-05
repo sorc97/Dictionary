@@ -10,7 +10,8 @@ export const word = (state = {}, action) => {
         rus: action.rus.toLowerCase(),
         currentLang: 'eng',
         complexity: 'hard',
-        phrases: []
+        phrases: [],
+        date: new Date()
       }
 
     case C.CHANGE_WORD:

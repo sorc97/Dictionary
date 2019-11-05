@@ -1,0 +1,14 @@
+.addWord-form, .changeLang-wrapper{
+  text-align: center;
+}
+
+.addWord-form>*{
+  padding: 10px;
+  font-size: 20px;
+  text-align: center;
+  border: 2px solid rgba(223, 220, 220, 0.719);
+}
+
+.addWord-button{
+  cursor: pointer;
+}

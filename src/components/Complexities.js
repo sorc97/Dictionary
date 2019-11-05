@@ -1,7 +1,12 @@
 import React from 'react'
 import Complexity from './Complexity'
 
-const Complexitites = ({words = [], onChange = f => f, onSetContext = f => f, contextMenuSize}) =>
+const Complexitites = ({
+  words = [], 
+  onChange = f => f, 
+  onSetContext = f => f, 
+  contextMenuSize
+}) =>
   <div className='complexity-wrapper'>
     <Complexity title='hard' 
       onChange={onChange}

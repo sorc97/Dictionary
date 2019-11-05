@@ -1,0 +1,32 @@
+.contextMenu-wrapper{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  /* display: none; */
+  visibility: hidden;
+  /* box-shadow: rgb(194, 194, 194) 0px 0px 12px; */
+  box-shadow: 0px 7px 11px 3px rgba(146, 146, 146, 0.43);
+  border-radius: 5px;
+}
+
+.contextMenu-wrapper.active{
+  display: block;
+  visibility: visible;
+}
+
+.contextMenu-list{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  /* box-shadow: 0px 0px 12px #0000002e; */
+}
+
+.contextMenu-item{
+  padding: 15px;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.contextMenu-item:hover{
+  background-color: rgb(232, 230, 230);;
+}

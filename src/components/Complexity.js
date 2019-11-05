@@ -1,7 +1,14 @@
 import React from 'react'
 import Words from './Words'
+import './stylesheets/Complexity.css'
 
-const Complexity = ({title, onChange = f => f, onSetContext = f=> f, words, contextMenuSize}) => {
+const Complexity = ({
+  title, 
+  onChange = f => f, 
+  onSetContext = f=> f, 
+  words, 
+  contextMenuSize
+}) => {
   const filteredWords = words.filter(item => item.complexity === title);
 
   return(

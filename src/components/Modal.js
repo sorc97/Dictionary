@@ -1,5 +1,5 @@
 import React from 'react'
-
+import './stylesheets/Modal.css'
 
 const Modal = ({children, onHideModal}) => {
 

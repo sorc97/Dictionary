@@ -71,7 +71,7 @@ export const ContextMenuContainer = connect(
       "Add to medium",
       "Add to hard",
       "Phrases",
-      "Remove"
+      "Remove",
     ]
   }),
   dispatch => ({

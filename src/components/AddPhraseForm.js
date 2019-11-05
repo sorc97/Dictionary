@@ -1,4 +1,5 @@
 import React from 'react'
+import './stylesheets/AddPhraseForm.css'
 
 const AddPhraseForm = ({onNewPhrase = f => f}) => {
   let _phrase;

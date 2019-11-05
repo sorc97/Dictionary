@@ -1,5 +1,6 @@
 import React from 'react'
 import Word from './Word'
+import './stylesheets/Words.css'
 
 const Words = ({words, onChange = f => f, onSetContext = f=> f, contextMenuSize}) =>
   <ul className='words-list'>

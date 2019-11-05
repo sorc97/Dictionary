@@ -4,6 +4,7 @@ import PhrasesList from './PhrasesList'
 import {withRouter} from 'react-router-dom'
 import Modal from './Modal'
 import ModalError from './ModalError'
+import './stylesheets/PhrasesModal.css'
 
 const PhrasesModal = ({
   word = {}, 

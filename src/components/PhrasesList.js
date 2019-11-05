@@ -1,4 +1,5 @@
 import React from 'react'
+import './stylesheets/PhrasesList.css'
 
 const PhrasesList = ({phrases = [], onRemovePhrase = f=> f}) =>
 <div className='phrases-list-wrapper'>

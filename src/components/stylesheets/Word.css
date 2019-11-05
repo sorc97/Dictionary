@@ -1,0 +1,33 @@
+.word{
+  font-size: 20px;
+  text-align: center;
+  padding: 25px;
+  margin: 10px;
+  border: 2px solid rgba(223, 220, 220, 0.719);
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all .3s ease;
+}
+
+.word:hover{
+  /* box-shadow: 0px 3px 0px #2196F3;
+  transform: translateY(-4px); */
+  box-shadow: -4px 0px 0px #2196F3;
+  transform: translateX(4px);
+}
+
+.word.english{
+  background-color: #fff;
+}
+
+.word.russian{
+  /* background-color: #cccccc5e; */
+  background-color: #f0f0f0;;
+}
+
+@media screen and (max-width: 575px){
+  .word{
+    width: 100%;
+  }
+}
