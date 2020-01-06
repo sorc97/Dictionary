@@ -1,8 +1,8 @@
 import C from './constants'
-import {v4} from 'uuid'
+import { v4 } from 'uuid'
 
 export const word = (state = {}, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case C.ADD_WORD:
       return {
         id: v4(),
@@ -16,10 +16,10 @@ export const word = (state = {}, action) => {
 
     case C.CHANGE_WORD:
       return (state.id !== action.id) ?
-        state:
+        state :
         {
           ...state,
-          currentLang: (state.currentLang === 'eng') ? 'rus': 'eng'
+          currentLang: (state.currentLang === 'eng') ? 'rus' : 'eng'
         }
 
     case C.CHANGE_LANGUAGE:
@@ -27,38 +27,40 @@ export const word = (state = {}, action) => {
         ...state,
         currentLang: action.changeValue
       }
-    
+
     case C.CHANGE_COMPLEXITY:
-      return (state.id !== action.id) ? 
-      state :
-      {
-        ...state,
-        complexity: action.complexity
-      }
+      return (state.id !== action.id) ?
+        state :
+        {
+          ...state,
+          complexity: action.complexity
+        }
 
     case C.ADD_PHRASE:
       return (state.id !== action.id) ?
-        state: 
+        state :
         {
           ...state,
           phrases: [...state.phrases, action.phrase]
         }
 
     case C.REMOVE_PHRASE:
-        return (state.id !== action.wordId) ?
-          state:
-          {
-            ...state,
-            phrases: state.phrases.filter((phrase, i) => i !== action.phraseIndex)
-          }
-    
+      return (state.id !== action.wordId) ?
+        state :
+        {
+          ...state,
+          phrases: state.phrases.filter(
+            (phrase, i) => i !== action.phraseIndex
+          )
+        }
+
     default:
       return state
   }
 }
 
 export const words = (state = [], action) => {
-  switch(action.type) {
+  switch (action.type) {
     case C.ADD_WORD:
       return [
         ...state,
@@ -70,7 +72,7 @@ export const words = (state = [], action) => {
     case C.CHANGE_COMPLEXITY:
     case C.ADD_PHRASE:
     case C.REMOVE_PHRASE:
-      return state.map(item => word(item, action))  
+      return state.map(item => word(item, action))
 
     case C.REMOVE_WORD:
       return state.filter(item => item.id !== action.id)
@@ -82,18 +84,18 @@ export const words = (state = [], action) => {
 
 export const contextMenu = (
   state = {
-    left: 0, 
-    top: 0, 
+    left: 0,
+    top: 0,
     elemId: 0,
     size: {
       height: 0,
       width: 0
     },
     isHidden: true
-  }, 
+  },
   action
 ) => {
-  switch(action.type) {
+  switch (action.type) {
     case C.SET_CONTEXT:
       return {
         ...state,
@@ -119,6 +121,16 @@ export const contextMenu = (
       }
 
     default:
+      return state;
+  }
+}
+
+export const isAdding = (state = false, action) => {
+  switch(action.type) {
+    case C.TOGGLE_ADDING: 
+      return !state
+    
+    default: 
       return state;
   }
 }

@@ -1,4 +1,4 @@
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import {
   addWord,
   changeWord,
@@ -9,15 +9,19 @@ import {
   hideContext,
   addPhrase,
   setContextSize,
-  removePhrase
+  removePhrase,
+  toggleAdding
 } from '../redux/actionCreators'
 import AddWordForm from './AddWordForm'
 import ChangeLangForm from './ChangeLangForm'
-import Complexitites from './Complexities'
+import Words from './Words'
 import ContextMenu from './ContextMenu'
 import PhrasesModal from './PhrasesModal'
 import SearchForm from './SearchForm'
-import {findById} from '../lib/array-helpers'
+import Complexity from './Complexity'
+import Toggler from './Toggler'
+import { findById } from '../lib/array-helpers'
+import Toggleable from './Toggleable'
 
 //Add Word Form
 export const NewWord = connect(
@@ -29,14 +33,15 @@ export const NewWord = connect(
   })
 )(AddWordForm)
 
+// SearchForm
 export const Search = connect(
   state => ({
-    words: [...state.words]
+    words: state.words
   })
 )(SearchForm)
 
 //Change Language Form
-export const ChangeLangContainer = connect(
+export const ChangeLang = connect(
   null,
   dispatch => ({
     onChangeLang(changeValue) {
@@ -45,11 +50,18 @@ export const ChangeLangContainer = connect(
   })
 )(ChangeLangForm)
 
-//Complexities and Words
-export const ComplexititesContainer = connect(
-  state => ({
-    words: [...state.words],
-    contextMenuSize: {...state.contextMenu.size}
+//Complexity 
+export const ComplexityContainer = connect(
+  ({ words }, { title }) => ({
+    words,
+    title
+  })
+)(Complexity)
+
+//Words List
+export const WordsList = connect(
+  ({ contextMenu: { size } }) => ({
+    contextMenuSize: size
   }),
   dispatch => ({
     onChange(id) {
@@ -59,13 +71,12 @@ export const ComplexititesContainer = connect(
       dispatch(setContext(left, top, id))
     }
   })
-)(Complexitites)
-
+)(Words)
 
 //Context Menu
 export const ContextMenuContainer = connect(
   state => ({
-    contextProps: {...state.contextMenu},
+    contextProps: { ...state.contextMenu },
     contextMenuItems: [
       "Add to easy",
       "Add to medium",
@@ -90,8 +101,9 @@ export const ContextMenuContainer = connect(
   })
 )(ContextMenu)
 
-export const PhrasesContainer = connect(
-  ({words}, {match}) => ({
+// PhrasesModal
+export const Phrases = connect(
+  ({ words }, { match }) => ({
     word: findById(words, match.params.id),
   }),
   dispatch => ({
@@ -103,3 +115,25 @@ export const PhrasesContainer = connect(
     }
   })
 )(PhrasesModal)
+
+// Add Toggler
+export const AddToggler = connect(
+  ({ isAdding }, { className }) => ({
+    condition: isAdding,
+    open: "+",
+    close: "X",
+    className
+  }),
+  dispatch => ({
+    toggleHandler() {
+      dispatch(toggleAdding())
+    }
+  })
+)(Toggler)
+
+export const ToggleableAdding = connect(
+  ({ isAdding }, { className }) => ({
+    condition: !isAdding,
+    className
+  }) 
+)(Toggleable)

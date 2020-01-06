@@ -1,3 +1,7 @@
+.addWord-form {
+  margin-bottom: 20px;
+}
+
 .addWord-form, .changeLang-wrapper{
   text-align: center;
 }

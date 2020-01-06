@@ -1,0 +1,16 @@
+.addingToggler {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 40px;
+  height: 40px;
+  font-size: 25px;
+  border: 2px solid #2196F3;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.addingToggler:focus {
+  outline: none;
+}

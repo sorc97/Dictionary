@@ -1,31 +1,11 @@
 import React from 'react'
-import Complexity from './Complexity'
+import { ComplexityContainer } from './Containers'
 
-const Complexitites = ({
-  words = [], 
-  onChange = f => f, 
-  onSetContext = f => f, 
-  contextMenuSize
-}) =>
+const Complexitites = () =>
   <div className='complexity-wrapper'>
-    <Complexity title='hard' 
-      onChange={onChange}
-      onSetContext={onSetContext}
-      words={words}
-      contextMenuSize={contextMenuSize}
-    />
-    <Complexity title='medium' 
-      onChange={onChange}
-      onSetContext={onSetContext}
-      words={words}
-      contextMenuSize={contextMenuSize}
-    />
-    <Complexity title='easy' 
-      onChange={onChange}
-      onSetContext={onSetContext}
-      words={words}
-      contextMenuSize={contextMenuSize}
-    />
+    <ComplexityContainer title='hard' />
+    <ComplexityContainer title='medium' />
+    <ComplexityContainer title='easy' />
   </div>
 
 export default Complexitites

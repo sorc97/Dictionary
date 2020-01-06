@@ -11,10 +11,11 @@ class ContextMenu extends Component {
 
   componentDidMount() {
     const {onSetContextSize} = this.props;
-    const {_menu} = this.refs;
     
-    onSetContextSize(_menu.offsetHeight, _menu.offsetWidth);
+    onSetContextSize(this._menu.offsetHeight, this._menu.offsetWidth);
   }
+
+  getRef = (node) => { this._menu = node }
 
   hideMenu = () => {
     this.props.onHideMenu();
@@ -22,16 +23,15 @@ class ContextMenu extends Component {
 
   toggleContext = () => {
     const {left, top, isHidden} = this.props.contextProps;
-    const {_menu} = this.refs; 
 
     if(isHidden) {
       window.removeEventListener('click', this.hideMenu);
       return;
     } 
 
-    _menu.hidden = isHidden;
-    _menu.style.left = left + 'px';
-    _menu.style.top = top + 'px';
+    this._menu.hidden = isHidden;
+    this._menu.style.left = left + 'px';
+    this._menu.style.top = top + 'px';
     window.addEventListener('click', this.hideMenu);
   }
 
@@ -70,7 +70,7 @@ class ContextMenu extends Component {
     return(
       <div 
         className= {(isHidden) ? 'contextMenu-wrapper': 'contextMenu-wrapper active'} 
-        ref='_menu'
+        ref={this.getRef}
       >
         <ul className='contextMenu-list'>
           {

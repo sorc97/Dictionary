@@ -26,7 +26,7 @@ const PhrasesModal = ({
         <AddPhraseForm 
           onNewPhrase={phrase => onNewPhrase(phrase, word.id)}/>
         {
-          (!Object.keys(word).length) ?
+          (!Object.keys(word).length) ? 
             "" :
             (!word.phrases.length) ? 
               <p>No phrases in the list</p> :

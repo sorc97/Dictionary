@@ -1,21 +1,29 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import './stylesheets/ChangeLangForm.css'
 
-const ChangeLangForm = ({onChangeLang = f => f}) => 
-  <div className = 'changeLang-wrapper'>
-    <button 
-      className = 'changeLang-button' 
+const ChangeLangForm = ({ onChangeLang = f => f }) =>
+  <form className='changeLang-form'>
+    <button
+      type='button'
+      className='changeLang-button'
       onClick={() => onChangeLang('eng')}
     >
       English words
     </button>
-    
-    <button 
-      className = 'changeLang-button' 
+
+    <button
+      type='button'
+      className='changeLang-button'
       onClick={() => onChangeLang('rus')}
     >
       Russian words
     </button>
-  </div>
+  </form>
+
+// PropTypes
+ChangeLangForm.propTypes = {
+  onChangeLang: PropTypes.func.isRequired
+}
 
 export default ChangeLangForm

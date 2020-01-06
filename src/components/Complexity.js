@@ -1,34 +1,33 @@
 import React from 'react'
-import Words from './Words'
+import { WordsList } from './Containers'
+import PropTypes from 'prop-types'
 import './stylesheets/Complexity.css'
 
 const Complexity = ({
-  title, 
-  onChange = f => f, 
-  onSetContext = f=> f, 
-  words, 
-  contextMenuSize
+  title = "unknown",
+  words = [],
 }) => {
   const filteredWords = words.filter(item => item.complexity === title);
 
-  return(
+  return (
     <div className='complexity'>
       <h1 className='complexity-caption'>{title.toUpperCase()}</h1>
       {
         (!filteredWords.length) ?
-        <p className='complexity-empty'>
-          Empty
-        </p> :
-        <Words
-          onChange = {onChange}
-          onSetContext = {onSetContext}
-          words = {filteredWords}
-          contextMenuSize={contextMenuSize}
-        />
+          <p className='complexity-empty'>
+            Empty
+          </p> :
+          <WordsList
+            words={filteredWords}
+          />
       }
     </div>
   )
 }
-  
+
+Complexity.propTypes = {
+  title: PropTypes.string,
+  words: PropTypes.array
+}
 
 export default Complexity

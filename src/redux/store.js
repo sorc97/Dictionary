@@ -1,7 +1,12 @@
-import {createStore, combineReducers} from 'redux'
-import {words, contextMenu} from './reducers'
+import { createStore, combineReducers } from 'redux'
+import { words, contextMenu, isAdding } from './reducers'
 
-const reducers = combineReducers({words, contextMenu})
+const reducers = combineReducers({ 
+  words, 
+  contextMenu,
+  isAdding
+})
+
 const store = createStore(
   reducers,
   (localStorage['redux-store']) ?
@@ -9,15 +14,12 @@ const store = createStore(
     {}
 );
 
-window.store = store;
-
 store.subscribe(() => {
   localStorage['redux-store'] = JSON.stringify({
     words: store.getState().words
   })
 })
-console.log(store.getState());
 
-store.subscribe(()=> console.log(store.getState()));
+store.subscribe(() => console.log(store.getState()));
 
 export default store;
