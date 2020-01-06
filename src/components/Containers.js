@@ -60,8 +60,9 @@ export const ComplexityContainer = connect(
 
 //Words List
 export const WordsList = connect(
-  ({ contextMenu: { size } }) => ({
-    contextMenuSize: size
+  ({ contextMenu: { size, isHidden } }) => ({
+    contextMenuSize: size,
+    isConextHidden: isHidden
   }),
   dispatch => ({
     onChange(id) {
@@ -121,7 +122,7 @@ export const AddToggler = connect(
   ({ isAdding }, { className }) => ({
     condition: isAdding,
     open: "+",
-    close: "X",
+    close: "x",
     className
   }),
   dispatch => ({

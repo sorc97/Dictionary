@@ -18,6 +18,12 @@ class ContextMenu extends Component {
   getRef = (node) => { this._menu = node }
 
   hideMenu = () => {
+    let selectedElement = document.querySelector('.selected');
+    
+    if(selectedElement) {
+      selectedElement.classList.remove('selected')
+    }
+
     this.props.onHideMenu();
   }
 
@@ -69,7 +75,11 @@ class ContextMenu extends Component {
     
     return(
       <div 
-        className= {(isHidden) ? 'contextMenu-wrapper': 'contextMenu-wrapper active'} 
+        className= {
+          (isHidden) ? 
+            'contextMenu-wrapper': 
+            'contextMenu-wrapper active'
+        } 
         ref={this.getRef}
       >
         <ul className='contextMenu-list'>

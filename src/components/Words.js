@@ -8,6 +8,7 @@ const Words = ({
   contextMenuSize,
   onChange,
   onSetContext,
+  isConextHidden
 }) =>
   <ul className='words-list'>
     {
@@ -18,6 +19,7 @@ const Words = ({
           onChange={() => onChange(item.id)}
           onSetContext={(left, top) => onSetContext(left, top, item.id)}
           contextMenuSize={contextMenuSize}
+          isConextHidden={isConextHidden}
         />
       )
     }
@@ -27,14 +29,16 @@ Words.propTypes = {
   words: PropTypes.array,
   contextMenu: PropTypes.object,
   onChange: PropTypes.func,
-  onSetContext: PropTypes.func
+  onSetContext: PropTypes.func,
+  isConextHidden: PropTypes.bool
 }
 
 Words.defaultProps = {
   words: [],
   contextMenu: {},
-  onChange: () => {},
-  onSetContext: () => {}
+  onChange: () => { },
+  onSetContext: () => { },
+  isConextHidden: false
 }
 
 export default Words

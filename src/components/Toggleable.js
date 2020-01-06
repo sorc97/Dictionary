@@ -1,17 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Toggleable = ({ 
+const Toggleable = ({
   condition = false,
   className = "",
   children,
-}) => 
-  <div 
+}) =>
+  <div
     hidden={condition}
     className={className}
   >
     {children}
-  </div>  
+  </div>
 
 Toggleable.propTypes = {
   condition: PropTypes.bool,

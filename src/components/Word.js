@@ -14,12 +14,24 @@ class Word extends Component {
   }
 
   setContext = e => {
-    const { onSetContext, contextMenuSize } = this.props;
+    const { 
+      onSetContext, 
+      contextMenuSize, 
+      isConextHidden 
+    } = this.props;
+
+    const target = e.target; 
+    const selectedElement = document.querySelector('.selected');
+
+    if(selectedElement) {
+      selectedElement.classList.remove('selected');
+    }
+
     const coords = {
       x: e.clientX,
       y: e.clientY
     }
-
+    
     const windowSize = {
       x: window.innerWidth,
       y: window.innerHeight
@@ -33,12 +45,13 @@ class Word extends Component {
     if (coords.y + contextMenuSize.height > windowSize.y) {
       newTopCoords -= contextMenuSize.height;
     } 
-    
+
     if (coords.x + contextMenuSize.width > windowSize.x) {
       newLeftCoords -= contextMenuSize.width;
     }
-
+    
     e.preventDefault();
+    target.classList.add('selected');
     onSetContext(newLeftCoords, newTopCoords);
   }
 
