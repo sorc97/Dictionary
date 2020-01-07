@@ -13,7 +13,9 @@ export const findById = compose(
 
 // Filter and find by title
 export const filterArrayByTitle = (array, title) =>
-  array.filter(item => item.eng === title || item.rus === title)
+  array.filter(
+    item => item.eng === title || item.rus === title
+  )
 
 export const findByTitle = compose(
   getFirstArrayItem,
