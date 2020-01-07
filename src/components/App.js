@@ -4,10 +4,8 @@ import {
   Phrases,
   HeaderContainer
 } from './Containers'
-import ModalError from './ModalError'
 import Complexitites from './Complexities'
-import Header from './Header'
-import { Route, Switch } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import './stylesheets/App.css'
 
 const App = () =>
@@ -16,14 +14,7 @@ const App = () =>
       <HeaderContainer />
       <Complexitites />
       <ContextMenuContainer />
-      <Switch>
-        <Route
-          path='/phrases/error'
-          component={({ history }) =>
-            <ModalError history={history} title='Word not found' />}
-        />
-        <Route path='/phrases/:id' component={Phrases} />
-      </Switch>
+      <Route path='/phrases/:id' component={Phrases} />
     </div>
   } />
 

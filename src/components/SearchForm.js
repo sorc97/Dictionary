@@ -15,7 +15,7 @@ const SearchForm = ({ words = [], history }) => {
 
     (foundWord) ?
       history.push(`/phrases/${foundWord.id}`) :
-      history.push(`/phrases/error`)
+      history.push(`/phrases/${query}`)
 
     _serchQuery.value = '';
     _serchQuery.focus();

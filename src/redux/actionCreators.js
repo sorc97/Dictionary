@@ -1,5 +1,6 @@
 import C from './constants'
 
+// Word actions
 export const addWord = (eng, rus) => ({
   type: C.ADD_WORD,
   eng,
@@ -21,6 +22,13 @@ export const changeLang = changeValue => ({
   changeValue
 })
 
+export const changeComplexity = (newComplexity, id) => ({
+  type: C.CHANGE_COMPLEXITY,
+  complexity: newComplexity,
+  id
+})
+
+// Context actions
 export const setContext = (left, top, id) => ({
   type: C.SET_CONTEXT,
   left,
@@ -38,12 +46,7 @@ export const hideContext = () => ({
   type: C.HIDE_CONTEXT
 })
 
-export const changeComplexity = (newComplexity, id) => ({
-  type: C.CHANGE_COMPLEXITY,
-  complexity: newComplexity,
-  id
-})
-
+// Phrases actions
 export const addPhrase = (phrase, id) => ({
   type: C.ADD_PHRASE,
   phrase,
@@ -56,6 +59,9 @@ export const removePhrase = (wordId, phraseIndex) => ({
   phraseIndex
 })
 
+// Other actions
 export const toggleAdding = () => ({
   type: C.TOGGLE_ADDING
 })
+
+

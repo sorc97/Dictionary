@@ -72,6 +72,8 @@ export const words = (state = [], action) => {
     case C.CHANGE_COMPLEXITY:
     case C.ADD_PHRASE:
     case C.REMOVE_PHRASE:
+    case C.SET_EDITABLE_WORD:
+    case C.EDIT_WORD:
       return state.map(item => word(item, action))
 
     case C.REMOVE_WORD:

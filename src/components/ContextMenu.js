@@ -46,7 +46,12 @@ class ContextMenu extends Component {
   }
 
   handleSelect = select => {
-    const { onChangeComplexity, onRemove, contextProps, history } = this.props;
+    const { 
+      onChangeComplexity, 
+      onRemove, 
+      contextProps, 
+      history 
+    } = this.props;
     const { elemId } = contextProps;
     console.log(select)
 
@@ -66,7 +71,7 @@ class ContextMenu extends Component {
       case "phrases":
         history.push(`/phrases/${elemId}`)
         break;
-
+        
       default:
         onChangeComplexity('hard', elemId)
         break;
