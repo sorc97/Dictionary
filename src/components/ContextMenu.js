@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import './stylesheets/ContextMenu.css'
 
 class ContextMenu extends Component {
+
   // Ref method
   getRef = (node) => { this._menu = node }
 
@@ -59,12 +60,20 @@ class ContextMenu extends Component {
         onRemove(elemId);
         break;
 
+      case "add to easy":
+        onChangeComplexity('easy', elemId)
+        break;
+
+      case "add to medium":
+        onChangeComplexity('medium', elemId)
+        break;
+
       case "phrases":
         history.push(`/phrases/${elemId}`)
         break;
         
       default:
-        onChangeComplexity(select, elemId)
+        onChangeComplexity('hard', elemId)
         break;
     }
   }
@@ -84,13 +93,13 @@ class ContextMenu extends Component {
       >
         <ul className='contextMenu-list'>
           {
-            Object.keys(contextMenuItems).map((key, i) =>
+            contextMenuItems.map((item, i) =>
               <li
                 className='contextMenu-item'
                 key={i}
-                onClick={() => this.handleSelect(key)}
+                onClick={() => this.handleSelect(item.toLowerCase())}
               >
-                {contextMenuItems[key]}
+                {item}
               </li>
             )
           }
@@ -102,7 +111,7 @@ class ContextMenu extends Component {
 
 ContextMenu.propTypes = {
   contextProps: PropTypes.object,
-  contextMenuItems: PropTypes.object,
+  contextMenuItems: PropTypes.arrayOf(PropTypes.string),
   onChangeComplexity: PropTypes.func,
   onRemove: PropTypes.func,
   onHideMenu: PropTypes.func,
@@ -111,7 +120,7 @@ ContextMenu.propTypes = {
 
 ContextMenu.defaultProps = {
   contextProps: {},
-  contextMenuItems: {},
+  contextMenuItems: [],
   onChangeComplexity: () => {},
   onRemove: () => {},
   onHideMenu: () => {},

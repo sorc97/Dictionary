@@ -1,6 +1,6 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { WordsList } from './Containers'
+import PropTypes from 'prop-types'
 import './stylesheets/Complexity.css'
 
 const Complexity = ({

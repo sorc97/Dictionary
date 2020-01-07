@@ -4,7 +4,7 @@ import {
   Phrases,
   HeaderContainer
 } from './Containers'
-import Complexities from './Complexities'
+import Complexitites from './Complexities'
 import { Route } from 'react-router-dom'
 import './stylesheets/App.css'
 
@@ -12,7 +12,7 @@ const App = () =>
   <Route path='/' component={() =>
     <div className='wrapper'>
       <HeaderContainer />
-      <Complexities />
+      <Complexitites />
       <ContextMenuContainer />
       <Route path='/phrases/:id' component={Phrases} />
     </div>
