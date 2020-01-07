@@ -86,7 +86,7 @@ export const contextMenu = (
   state = {
     left: 0,
     top: 0,
-    elemId: 0,
+    elemId: "0",
     size: {
       height: 0,
       width: 0

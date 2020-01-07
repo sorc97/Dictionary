@@ -1,26 +1,29 @@
-import React, {Component} from 'react'
-import {withRouter} from 'react-router-dom'
+import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import './stylesheets/ContextMenu.css'
 
 class ContextMenu extends Component {
 
+  // Ref method
+  getRef = (node) => { this._menu = node }
+
+  // Life cycle 
   componentDidUpdate() {
     this.toggleContext();
-    // console.log("UPDATE");
   }
 
   componentDidMount() {
-    const {onSetContextSize} = this.props;
-    
+    const { onSetContextSize } = this.props;
+
     onSetContextSize(this._menu.offsetHeight, this._menu.offsetWidth);
   }
 
-  getRef = (node) => { this._menu = node }
-
+  // Context menu handling
   hideMenu = () => {
     let selectedElement = document.querySelector('.selected');
-    
-    if(selectedElement) {
+
+    if (selectedElement) {
       selectedElement.classList.remove('selected')
     }
 
@@ -28,12 +31,13 @@ class ContextMenu extends Component {
   }
 
   toggleContext = () => {
-    const {left, top, isHidden} = this.props.contextProps;
+    const { left, top, isHidden } = this.props.contextProps;
 
-    if(isHidden) {
+    if (isHidden) {
       window.removeEventListener('click', this.hideMenu);
+      this._menu.hidden = true;
       return;
-    } 
+    }
 
     this._menu.hidden = isHidden;
     this._menu.style.left = left + 'px';
@@ -42,51 +46,51 @@ class ContextMenu extends Component {
   }
 
   handleSelect = select => {
-    const {onChangeComplexity, onRemove, contextProps, history} = this.props;
-    const {elemId} = contextProps;
+    const { onChangeComplexity, onRemove, contextProps, history } = this.props;
+    const { elemId } = contextProps;
     console.log(select)
-    
-    switch(select) {
+
+    switch (select) {
       case "remove":
         onRemove(elemId);
-      break;
-      
+        break;
+
       case "add to easy":
         onChangeComplexity('easy', elemId)
-      break;
-      
+        break;
+
       case "add to medium":
         onChangeComplexity('medium', elemId)
-      break;
+        break;
 
       case "phrases":
-          history.push(`/phrases/${elemId}`)
-      break;
+        history.push(`/phrases/${elemId}`)
+        break;
 
       default:
         onChangeComplexity('hard', elemId)
-      break;
+        break;
     }
   }
 
   render() {
-    const {contextMenuItems} = this.props;
-    const {isHidden} = this.props.contextProps;
-    
-    return(
-      <div 
-        className= {
-          (isHidden) ? 
-            'contextMenu-wrapper': 
+    const { contextMenuItems } = this.props;
+    const { isHidden } = this.props.contextProps;
+
+    return (
+      <div
+        className={
+          (isHidden) ?
+            'contextMenu-wrapper' :
             'contextMenu-wrapper active'
-        } 
+        }
         ref={this.getRef}
       >
         <ul className='contextMenu-list'>
           {
-            contextMenuItems.map((item, i) => 
-              <li 
-                className='contextMenu-item' 
+            contextMenuItems.map((item, i) =>
+              <li
+                className='contextMenu-item'
                 key={i}
                 onClick={() => this.handleSelect(item.toLowerCase())}
               >
@@ -99,5 +103,23 @@ class ContextMenu extends Component {
     )
   }
 }
- 
+
+ContextMenu.propTypes = {
+  contextProps: PropTypes.object,
+  contextMenuItems: PropTypes.arrayOf(PropTypes.string),
+  onChangeComplexity: PropTypes.func,
+  onRemove: PropTypes.func,
+  onHideMenu: PropTypes.func,
+  onSetContextSize: PropTypes.func
+}
+
+ContextMenu.defaultProps = {
+  contextProps: {},
+  contextMenuItems: [],
+  onChangeComplexity: () => {},
+  onRemove: () => {},
+  onHideMenu: () => {},
+  onSetContextSize: () => {}
+}
+
 export default withRouter(ContextMenu)

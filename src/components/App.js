@@ -1,7 +1,8 @@
 import React from 'react'
 import {
   ContextMenuContainer,
-  Phrases
+  Phrases,
+  HeaderContainer
 } from './Containers'
 import ModalError from './ModalError'
 import Complexitites from './Complexities'
@@ -12,7 +13,7 @@ import './stylesheets/App.css'
 const App = () =>
   <Route path='/' component={() =>
     <div className='wrapper'>
-      <Header />
+      <HeaderContainer />
       <Complexitites />
       <ContextMenuContainer />
       <Switch>

@@ -22,6 +22,7 @@ import Complexity from './Complexity'
 import Toggler from './Toggler'
 import { findById } from '../lib/array-helpers'
 import Toggleable from './Toggleable'
+import Header from './Header'
 
 //Add Word Form
 export const NewWord = connect(
@@ -34,11 +35,11 @@ export const NewWord = connect(
 )(AddWordForm)
 
 // SearchForm
-export const Search = connect(
-  state => ({
-    words: state.words
+export const HeaderContainer = connect(
+  ({ words }) => ({
+    words
   })
-)(SearchForm)
+)(Header)
 
 //Change Language Form
 export const ChangeLang = connect(
@@ -60,9 +61,8 @@ export const ComplexityContainer = connect(
 
 //Words List
 export const WordsList = connect(
-  ({ contextMenu: { size, isHidden } }) => ({
-    contextMenuSize: size,
-    isConextHidden: isHidden
+  ({ contextMenu: { size } }) => ({
+    contextMenuSize: size
   }),
   dispatch => ({
     onChange(id) {
@@ -77,7 +77,7 @@ export const WordsList = connect(
 //Context Menu
 export const ContextMenuContainer = connect(
   state => ({
-    contextProps: { ...state.contextMenu },
+    contextProps: state.contextMenu,
     contextMenuItems: [
       "Add to easy",
       "Add to medium",
@@ -132,6 +132,7 @@ export const AddToggler = connect(
   })
 )(Toggler)
 
+// Toggleable Adding
 export const ToggleableAdding = connect(
   ({ isAdding }, { className }) => ({
     condition: !isAdding,

@@ -1,0 +1,13 @@
+.words-amount {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  padding: 10px;
+  font-size: 1.2rem;
+  /* background-color: aliceblue; */
+  /* border: 2px solid black; */
+  border-radius: 5px;
+  cursor: default;
+  /* border-bottom: 2px solid #2196F3; */
+  border: 2px solid #5a5a5a;
+}
