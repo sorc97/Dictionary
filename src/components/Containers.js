@@ -8,7 +8,6 @@ import {
   removeWord,
   hideContext,
   addPhrase,
-  setContextSize,
   removePhrase,
   toggleAdding
 } from '../redux/actionCreators'
@@ -60,9 +59,7 @@ export const ComplexityContainer = connect(
 
 //Words List
 export const WordsList = connect(
-  ({ contextMenu: { size } }) => ({
-    contextMenuSize: size
-  }),
+  null,
   dispatch => ({
     onChange(id) {
       dispatch(changeWord(id))
@@ -94,9 +91,6 @@ export const ContextMenuContainer = connect(
     },
     onHideMenu() {
       dispatch(hideContext())
-    },
-    onSetContextSize(height, width) {
-      dispatch(setContextSize(height, width))
     }
   })
 )(ContextMenu)

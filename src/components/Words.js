@@ -5,7 +5,6 @@ import './stylesheets/Words.css'
 
 const Words = ({
   words,
-  contextMenuSize,
   onChange,
   onSetContext,
 }) =>
@@ -19,7 +18,6 @@ const Words = ({
           onSetContext={
             (left, top, complexity) => onSetContext(left, top, item.id, complexity)
           }
-          contextMenuSize={contextMenuSize}
         />
       )
     }
@@ -27,14 +25,12 @@ const Words = ({
 
 Words.propTypes = {
   words: PropTypes.array,
-  contextMenu: PropTypes.object,
   onChange: PropTypes.func,
   onSetContext: PropTypes.func,
 }
 
 Words.defaultProps = {
   words: [],
-  contextMenu: {},
   onChange: () => { },
   onSetContext: () => { },
 }

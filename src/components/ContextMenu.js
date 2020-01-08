@@ -13,12 +13,6 @@ class ContextMenu extends Component {
     this.toggleContext();
   }
 
-  componentDidMount() {
-    const { onSetContextSize } = this.props;
-
-    onSetContextSize(this._menu.offsetHeight, this._menu.offsetWidth);
-  }
-
   // Context menu handling
   hideMenu = () => {
     let selectedElement = document.querySelector('.selected');
@@ -30,8 +24,40 @@ class ContextMenu extends Component {
     this.props.onHideMenu();
   }
 
+  // Context menu coords related on window sizing
+  calculateCoords = () => {
+    const { left, top } = this.props.contextProps;
+    // Window size
+    const windowSize = {
+      x: window.innerWidth,
+      y: window.innerHeight
+    }
+    // Context menu size
+    const contextMenuSize = {
+      height: this._menu.offsetHeight,
+      width: this._menu.offsetWidth
+    }
+    // New coords
+    let newTopCoords = top + window.pageYOffset;
+    let newLeftCoords = left + window.pageXOffset;
+    // Positioning by the window top edge 
+    if (top + contextMenuSize.height + 10 > windowSize.y) {
+      newTopCoords -= contextMenuSize.height;
+    }
+    // Positioning by the window left edge 
+    if (left + contextMenuSize.width + 10 > windowSize.x) {
+      newLeftCoords -= contextMenuSize.width;
+    }
+
+    return {
+      x: newLeftCoords,
+      y: newTopCoords
+    }
+  }
+
   toggleContext = () => {
-    const { left, top, isHidden } = this.props.contextProps;
+    const { isHidden } = this.props.contextProps;
+    const { x, y } = this.calculateCoords();  //get current coords
 
     if (isHidden) {
       window.removeEventListener('click', this.hideMenu);
@@ -40,8 +66,8 @@ class ContextMenu extends Component {
     }
 
     this._menu.hidden = isHidden;
-    this._menu.style.left = left + 'px';
-    this._menu.style.top = top + 'px';
+    this._menu.style.left = x + 'px';
+    this._menu.style.top = y + 'px';
     window.addEventListener('click', this.hideMenu);
   }
 
@@ -74,7 +100,7 @@ class ContextMenu extends Component {
   render() {
     const { contextMenuItems, contextProps } = this.props;
     const { complexity } = contextProps;
-    const { isHidden } = this.props.contextProps;
+    const { isHidden } = contextProps;
 
     return (
       <div
@@ -88,7 +114,7 @@ class ContextMenu extends Component {
         <ul className='contextMenu-list'>
           {
             Object.keys(contextMenuItems).map((key, i) =>
-            key !== complexity &&
+              key !== complexity &&
               <li
                 className='contextMenu-item'
                 key={i}
@@ -110,7 +136,6 @@ ContextMenu.propTypes = {
   onChangeComplexity: PropTypes.func,
   onRemove: PropTypes.func,
   onHideMenu: PropTypes.func,
-  onSetContextSize: PropTypes.func
 }
 
 ContextMenu.defaultProps = {
@@ -119,7 +144,6 @@ ContextMenu.defaultProps = {
   onChangeComplexity: () => { },
   onRemove: () => { },
   onHideMenu: () => { },
-  onSetContextSize: () => { }
 }
 
 export default withRouter(ContextMenu)

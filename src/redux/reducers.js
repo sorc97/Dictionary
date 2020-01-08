@@ -72,8 +72,6 @@ export const words = (state = [], action) => {
     case C.CHANGE_COMPLEXITY:
     case C.ADD_PHRASE:
     case C.REMOVE_PHRASE:
-    case C.SET_EDITABLE_WORD:
-    case C.EDIT_WORD:
       return state.map(item => word(item, action))
 
     case C.REMOVE_WORD:
@@ -90,22 +88,23 @@ export const contextMenu = (
     top: 0,
     elemId: "0",
     complexity: "none",
-    size: {
-      height: 0,
-      width: 0
-    },
     isHidden: true
-  },
-  action
+  }, { 
+    type, 
+    left, 
+    top, 
+    id: elemId, 
+    complexity 
+  }
 ) => {
-  switch (action.type) {
+  switch (type) {
     case C.SET_CONTEXT:
       return {
         ...state,
-        left: action.left,
-        top: action.top,
-        elemId: action.id,
-        complexity: action.complexity,
+        left,
+        top,
+        elemId,
+        complexity,
         isHidden: false
       }
 
@@ -115,22 +114,13 @@ export const contextMenu = (
         isHidden: true
       }
 
-    case C.SET_CONTEXT_SIZE:
-      return {
-        ...state,
-        size: {
-          height: action.height,
-          width: action.width
-        }
-      }
-
     default:
       return state;
   }
 }
 
-export const isAdding = (state = false, action) => {
-  switch(action.type) {
+export const isAdding = (state = false, { type }) => {
+  switch(type) {
     case C.TOGGLE_ADDING: 
       return !state
     
