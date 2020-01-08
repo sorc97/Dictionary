@@ -9,13 +9,13 @@ const reducers = combineReducers({
 
 const store = createStore(
   reducers,
-  (localStorage['redux-store']) ?
-    JSON.parse(localStorage['redux-store']) :
+  (localStorage['dictionary-words']) ?
+    JSON.parse(localStorage['dictionary-words']) :
     {}
 );
 
 store.subscribe(() => {
-  localStorage['redux-store'] = JSON.stringify({
+  localStorage['dictionary-words'] = JSON.stringify({
     words: store.getState().words
   })
 })

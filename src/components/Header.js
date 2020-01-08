@@ -18,7 +18,6 @@ const Header = ({ words = [] }) =>
     <ToggleableAdding className="adding-wrapper">
       <NewWord />
     </ToggleableAdding>
-
     <AddToggler className="addingToggler" />
     <ChangeLang />
     <SearchForm words={words} />

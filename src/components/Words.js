@@ -16,7 +16,9 @@ const Words = ({
           key={item.id}
           {...item}
           onChange={() => onChange(item.id)}
-          onSetContext={(left, top) => onSetContext(left, top, item.id)}
+          onSetContext={
+            (left, top, complexity) => onSetContext(left, top, item.id, complexity)
+          }
           contextMenuSize={contextMenuSize}
         />
       )

@@ -9,7 +9,7 @@ export const word = (state = {}, action) => {
         eng: action.eng.toLowerCase(),
         rus: action.rus.toLowerCase(),
         currentLang: 'eng',
-        complexity: 'hard',
+        complexity: action.complexity,
         phrases: [],
         date: new Date()
       }
@@ -89,6 +89,7 @@ export const contextMenu = (
     left: 0,
     top: 0,
     elemId: "0",
+    complexity: "none",
     size: {
       height: 0,
       width: 0
@@ -104,6 +105,7 @@ export const contextMenu = (
         left: action.left,
         top: action.top,
         elemId: action.id,
+        complexity: action.complexity,
         isHidden: false
       }
 

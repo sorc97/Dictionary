@@ -13,7 +13,8 @@ class Word extends Component {
   setContext = e => {
     const {
       onSetContext,
-      contextMenuSize
+      contextMenuSize,
+      complexity
     } = this.props;
 
     const target = e.target;
@@ -49,7 +50,7 @@ class Word extends Component {
 
     e.preventDefault();
     target.classList.add('selected');
-    onSetContext(newLeftCoords, newTopCoords);
+    onSetContext(newLeftCoords, newTopCoords, complexity);
   }
 
   render() {

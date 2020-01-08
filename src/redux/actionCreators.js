@@ -1,10 +1,11 @@
 import C from './constants'
 
 // Word actions
-export const addWord = (eng, rus) => ({
+export const addWord = (eng, rus, complexity) => ({
   type: C.ADD_WORD,
   eng,
-  rus
+  rus,
+  complexity
 })
 
 export const removeWord = id => ({
@@ -29,11 +30,12 @@ export const changeComplexity = (newComplexity, id) => ({
 })
 
 // Context actions
-export const setContext = (left, top, id) => ({
+export const setContext = (left, top, id, complexity) => ({
   type: C.SET_CONTEXT,
   left,
   top,
-  id
+  id,
+  complexity
 })
 
 export const setContextSize = (height, width) => ({

@@ -19,16 +19,16 @@ import ContextMenu from './ContextMenu'
 import PhrasesModal from './PhrasesModal'
 import Complexity from './Complexity'
 import Toggler from './Toggler'
-import { findById } from '../lib/array-helpers'
 import Toggleable from './Toggleable'
 import Header from './Header'
+import { findById } from '../lib/array-helpers'
 
 //Add Word Form
 export const NewWord = connect(
   null,
   dispatch => ({
-    onNewWord(eng, rus) {
-      dispatch(addWord(eng, rus))
+    onNewWord(eng, rus, complexity) {
+      dispatch(addWord(eng, rus, complexity))
     }
   })
 )(AddWordForm)
@@ -67,8 +67,8 @@ export const WordsList = connect(
     onChange(id) {
       dispatch(changeWord(id))
     },
-    onSetContext(left, top, id) {
-      dispatch(setContext(left, top, id))
+    onSetContext(left, top, id, complexity) {
+      dispatch(setContext(left, top, id, complexity))
     }
   })
 )(Words)
@@ -77,13 +77,13 @@ export const WordsList = connect(
 export const ContextMenuContainer = connect(
   state => ({
     contextProps: state.contextMenu,
-    contextMenuItems: [
-      "Add to easy",
-      "Add to medium",
-      "Add to hard",
-      "Phrases",
-      "Remove",
-    ]
+    contextMenuItems: {
+      easy: "Add to easy",
+      medium: "Add to medium",
+      hard: "Add to hard",
+      phrases: "Phrases",
+      remove: "Remove"
+    }
   }),
   dispatch => ({
     onChangeComplexity(newComplexity, id) {
