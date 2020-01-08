@@ -10,7 +10,7 @@ const ChangeLangForm = ({ onChangeLang = f => f }) =>
       onClick={() => onChangeLang('eng')}
     >
       English words
-    </button>
+      </button>
 
     <button
       type='button'
@@ -18,7 +18,7 @@ const ChangeLangForm = ({ onChangeLang = f => f }) =>
       onClick={() => onChangeLang('rus')}
     >
       Russian words
-    </button>
+      </button>
   </form>
 
 // PropTypes

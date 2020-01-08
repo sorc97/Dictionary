@@ -4,11 +4,17 @@
   top: 0px;
   width: 50px;
   height: 50px;
-  font-size: 25px;
-  border: 2px solid #2196F3;
+  font-size: 35px;
+  /* border: 2px solid #2196F3; */
+  border: none;
   border-radius: 50%;
   cursor: pointer;
-  background-color: #fff;
+  background-color: #2196F3;
+  color: #fff;
+}
+
+.addingToggler:hover {
+  background-color: #0f8cf1;
 }
 
 .addingToggler:focus {

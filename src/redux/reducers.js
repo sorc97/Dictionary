@@ -11,7 +11,7 @@ export const word = (state = {}, action) => {
         currentLang: 'eng',
         complexity: action.complexity,
         phrases: [],
-        date: new Date()
+        date: Date.now()
       }
 
     case C.CHANGE_WORD:
@@ -33,7 +33,8 @@ export const word = (state = {}, action) => {
         state :
         {
           ...state,
-          complexity: action.complexity
+          complexity: action.complexity,
+          date: Date.now(),
         }
 
     case C.ADD_PHRASE:

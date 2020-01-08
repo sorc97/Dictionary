@@ -30,7 +30,7 @@ Toggler.propTypes = {
 Toggler.defaultProps = {
   condition: false,
   open: "+",
-  close: "X",
+  close: "×",
   className: "",
   toggleAdding: () => {}
 }

@@ -115,7 +115,7 @@ export const AddToggler = connect(
   ({ isAdding }, { className }) => ({
     condition: isAdding,
     open: "+",
-    close: "x",
+    close: "×",
     className
   }),
   dispatch => ({

@@ -8,17 +8,18 @@ const Complexity = ({
   words = [],
 }) => {
   const filteredWords = words.filter(item => item.complexity === title);
-
+  const sortedWords = filteredWords.sort((a, b) => a.date - b.date);
+  
   return (
     <div className='complexity'>
       <h1 className='complexity-caption'>{title.toUpperCase()}</h1>
       {
-        (!filteredWords.length) ?
+        (!sortedWords.length) ?
           <p className='complexity-empty'>
             Empty
           </p> :
           <WordsList
-            words={filteredWords}
+            words={sortedWords}
           />
       }
     </div>
