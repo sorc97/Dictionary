@@ -4,22 +4,23 @@ import {
   AddToggler,
   ChangeLang,
   ToggleableAdding,
-  NewWord
+  NewWord,
+  SearchForm
 } from './Containers'
-import SearchForm from './SearchForm'
 import WordsAmount from './WordsAmount'
 import './stylesheets/Header.css'
+import './stylesheets/SearchForm.css'
 
-const Header = ({ words = [] }) =>
+const Header = ({ wordsSum = 0 }) =>
   <header className='header'>
     <ToggleableAdding className="adding-wrapper">
       <NewWord />
     </ToggleableAdding>
-    <AddToggler className="addingToggler" />
+    <AddToggler className="adding-toggler" />
     <ChangeLang />
-    <SearchForm words={words} />
+    <SearchForm />
     <WordsAmount
-      amount={words.length}
+      amount={wordsSum}
       title="Words amount:"
     />
   </header>

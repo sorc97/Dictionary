@@ -1,4 +1,4 @@
-.addingToggler {
+.adding-toggler {
   position: absolute;
   left: 0px;
   top: 0px;
@@ -13,11 +13,11 @@
   color: #fff;
 }
 
-.addingToggler:hover {
+.adding-toggler:hover {
   background-color: #0f8cf1;
 }
 
-.addingToggler:focus {
+.adding-toggler:focus {
   outline: none;
   background-color: var(--primary-color-highlighted);
 }

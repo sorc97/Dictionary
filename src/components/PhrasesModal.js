@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import AddPhraseForm from './AddPhraseForm'
+import Form from './Form'
 import PhrasesList from './PhrasesList'
 import Modal from './Modal'
 import ModalError from './ModalError'
@@ -29,8 +29,11 @@ const PhrasesModal = ({
             <br />
             <span>{word.rus}</span>
           </h1>
-          <AddPhraseForm
-            onNewPhrase={phrase => onNewPhrase(phrase, word.id)} />
+          <Form
+            handleSubmit={phrase => onNewPhrase(phrase, word.id)}
+            className='phrases-add-form'
+            button="ADD"
+            placeholder='Add phrase' />
           {
             (isWordFounded) &&
             <PhrasesList

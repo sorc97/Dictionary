@@ -20,7 +20,9 @@ import Complexity from './Complexity'
 import Toggler from './Toggler'
 import Toggleable from './Toggleable'
 import Header from './Header'
-import { findById } from '../lib/array-helpers'
+import { findById, findByTitle } from '../lib/array-helpers'
+import Form from './Form'
+import { withRouter } from 'react-router-dom'
 
 //Add Word Form
 export const NewWord = connect(
@@ -35,7 +37,7 @@ export const NewWord = connect(
 // SearchForm
 export const HeaderContainer = connect(
   ({ words }) => ({
-    words
+    wordsSum: words.length
   })
 )(Header)
 
@@ -130,5 +132,27 @@ export const ToggleableAdding = connect(
   ({ isAdding }, { className }) => ({
     condition: !isAdding,
     className
-  }) 
+  })
 )(Toggleable)
+
+// Search Form
+export const SearchForm = withRouter(
+  connect(
+    ({ words }, { history }) => {
+      const handleSubmit = (query) => {  // Searching function
+        const foundWord = findByTitle(words, query);
+
+        (foundWord) ?
+          history.push(`/phrases/${foundWord.id}`) :
+          history.push(`/phrases/${query}`)
+      }
+
+      return {
+        handleSubmit,
+        className: 'search-form',
+        placeholder: 'Search word',
+        button: 'Search'
+      }
+    }
+  )(Form)
+)
