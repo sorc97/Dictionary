@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import './stylesheets/Word.css'
+import './stylesheets/WordsItem.css'
 
-class Word extends Component {
+class WordsItem extends Component {
 
   shouldComponentUpdate(newState) {
     const { currentLang } = this.props;
@@ -53,7 +53,7 @@ class Word extends Component {
   }
 }
 
-Word.propTypes = {
+WordsItem.propTypes = {
   eng: PropTypes.string,
   rus: PropTypes.string,
   currentLang: PropTypes.string,
@@ -61,7 +61,7 @@ Word.propTypes = {
   onSetContext: PropTypes.func
 }
 
-Word.defaultProps = {
+WordsItem.defaultProps = {
   eng: "",
   rus: "",
   currentLang: "eng",
@@ -69,4 +69,4 @@ Word.defaultProps = {
   onSetContext: () => { }
 }
 
-export default Word
+export default WordsItem

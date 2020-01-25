@@ -12,7 +12,7 @@ import {
   toggleAdding
 } from '../redux/actionCreators'
 import AddWordForm from './AddWordForm'
-import ChangeLangForm from './ChangeLangForm'
+import ChangeLang from './ChangeLang'
 import Words from './Words'
 import ContextMenu from './ContextMenu'
 import PhrasesModal from './PhrasesModal'
@@ -42,14 +42,14 @@ export const HeaderContainer = connect(
 )(Header)
 
 //Change Language Form
-export const ChangeLang = connect(
+export const ChangeLangContainer = connect(
   null,
   dispatch => ({
     onChangeLang(changeValue) {
       dispatch(changeLang(changeValue))
     }
   })
-)(ChangeLangForm)
+)(ChangeLang)
 
 //Complexity 
 export const ComplexityContainer = connect(

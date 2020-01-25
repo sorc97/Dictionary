@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import './stylesheets/ChangeLangForm.css'
+import './stylesheets/ChangeLang.css'
 
-const ChangeLangForm = ({ onChangeLang = f => f }) =>
+const ChangeLang = ({ onChangeLang = f => f }) =>
   <form className='changeLang-form'>
     <button
       type='button'
@@ -22,8 +22,8 @@ const ChangeLangForm = ({ onChangeLang = f => f }) =>
   </form>
 
 // PropTypes
-ChangeLangForm.propTypes = {
+ChangeLang.propTypes = {
   onChangeLang: PropTypes.func.isRequired
 }
 
-export default ChangeLangForm
+export default ChangeLang

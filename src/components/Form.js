@@ -1,17 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Form = ({ 
+const Form = ({
   handleSubmit, placeholder, button, className
 }) => {
-  let _inputField;
+
+  let _inputField;  // Access to input's DOM element
 
   const submit = (e) => {
     e.preventDefault();
-    const inputValue = _inputField.value;
 
+    const inputValue = _inputField.value;
+    // Change state with input value
     handleSubmit(inputValue);
-    
+    // Reset form value
     _inputField.value = '';
     _inputField.focus();
   }
@@ -30,6 +32,13 @@ const Form = ({
       <button>{button}</button>
     </form>
   )
+}
+
+Form.propTypes = {
+  placeholder: PropTypes.string,
+  button: PropTypes.string,
+  className: PropTypes.string,
+  handleSubmit: PropTypes.func,
 }
 
 export default Form

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Word from './Word'
+import WordsItem from './WordsItem'
 import './stylesheets/Words.css'
 
 const Words = ({
@@ -11,7 +11,7 @@ const Words = ({
   <ul className='words-list'>
     {
       words.map(item =>
-        <Word
+        <WordsItem
           key={item.id}
           {...item}
           onChange={() => onChange(item.id)}

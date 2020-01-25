@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {
   AddToggler,
-  ChangeLang,
+  ChangeLangContainer,
   ToggleableAdding,
   NewWord,
   SearchForm
@@ -17,7 +17,7 @@ const Header = ({ wordsSum = 0 }) =>
       <NewWord />
     </ToggleableAdding>
     <AddToggler className="adding-toggler" />
-    <ChangeLang />
+    <ChangeLangContainer />
     <SearchForm />
     <WordsAmount
       amount={wordsSum}
