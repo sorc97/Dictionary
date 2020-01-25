@@ -8,13 +8,10 @@ import {
 } from './Containers'
 import SearchForm from './SearchForm'
 import WordsAmount from './WordsAmount'
-
-const headerStyle = {
-  position: "relative"
-}
+import './stylesheets/Header.css'
 
 const Header = ({ words = [] }) =>
-  <header style={headerStyle}>
+  <header className='header'>
     <ToggleableAdding className="adding-wrapper">
       <NewWord />
     </ToggleableAdding>
@@ -23,7 +20,7 @@ const Header = ({ words = [] }) =>
     <SearchForm words={words} />
     <WordsAmount
       amount={words.length}
-      title="Words amount:" 
+      title="Words amount:"
     />
   </header>
 

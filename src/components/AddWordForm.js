@@ -17,25 +17,36 @@ const AddWordForm = ({ onNewWord = f => f }) => {
 
   return (
     <form className='addWord-form' onSubmit={submit}>
-      <input type='text'
-        ref={input => _english = input}
-        placeholder="English"
-        required
-      />
-      <input type='text'
-        ref={input => _russian = input}
-        placeholder="Russian"
-        required
-      />
-      <select 
-        defaultValue="hard"
-        ref={input => _complexity = input}
-      >
-        <option value='hard'>Hard</option>
-        <option value='medium'>Medium</option>
-        <option value='easy'>Easy</option>
-      </select>
-      <button className='addWord-button'>ADD</button>
+      <div className='text-fields'>
+        <input type='text'
+          ref={input => _english = input}
+          placeholder="English"
+          name='eng-word'
+          lang='en'
+          required
+        />
+        <input type='text'
+          ref={input => _russian = input}
+          placeholder="Russian"
+          name='rus-word'
+          lang='ru'
+          required
+        />
+      </div>
+      <div className='submit-wrapper'>
+        <select
+          className='addWord-complexity'
+          defaultValue="hard"
+          ref={input => _complexity = input}
+        >
+          <option value='hard'>Hard</option>
+          <option value='medium'>Medium</option>
+          <option value='easy'>Easy</option>
+        </select>
+        <button className='addWord-button'>
+          ADD
+        </button>
+      </div>
     </form>
   )
 }

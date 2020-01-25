@@ -1,15 +1,26 @@
+.complexity {
+  margin-bottom: 30px;
+}
+
+.complexity:last-of-type {
+  margin-bottom: 0;
+}
+
+.complexities {
+  margin-top: 30px;
+}
+
 .complexity-caption{
   position: relative;
   border-bottom: 2px solid #2196F3;
+  margin-top: 0px;
 }
 
 .complexity-empty{
   margin: 0;
-  font-size: 25px;
   text-transform: uppercase;
-  color: #80808099;
   text-align: center;
   padding: 40px 0px;
-  background: aliceblue;
+  background: var(--emphasize-color);
   border-radius: 5px;
 }

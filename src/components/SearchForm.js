@@ -18,7 +18,7 @@ const SearchForm = ({ words = [], history }) => {
       history.push(`/phrases/${query}`)
 
     _serchQuery.value = '';
-    _serchQuery.focus();
+    _serchQuery.blur();
   }
 
   return (

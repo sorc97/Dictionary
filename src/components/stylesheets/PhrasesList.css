@@ -9,14 +9,14 @@
   overflow-y: auto;
   overflow-x: hidden;
   width: 100%;
-  padding: 0px 20px;
+  padding: 0px 10px;
 }
 
 .phrases-item{
   position: relative;
   font-size: 20px;
   padding: 15px 0px;
-  border-bottom: 2px solid #8497a74f;
+  border-bottom: 2px solid rgba(132, 151, 167, 0.3);
   line-height: 1.5em;
   overflow: hidden;
 }
@@ -38,7 +38,7 @@
   height: 30px;
   width: 30px;
   display: none;
-  background-color: #ff000082;
+  background-color: rgba(255, 0, 0, 0.5);
   color: #fff;
   cursor: pointer;
   animation: slideFromRight .2s ease;

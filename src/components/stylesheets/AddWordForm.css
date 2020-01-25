@@ -6,13 +6,81 @@
   text-align: center;
 }
 
-.addWord-form>*{
+.text-fields > * , .submit-wrapper > *{
   padding: 10px;
   font-size: 20px;
   text-align: center;
   border: 2px solid rgba(223, 220, 220, 0.719);
 }
 
-.addWord-button{
+.text-fields {
+  padding: 0px 60px;
+}
+
+.text-fields > input {
+  border: 2px solid var(--primary-color);
+}
+
+.text-fields > input[name='eng-word'] {
+  border-top-left-radius: var(--border-radius-size);
+  border-bottom-left-radius: var(--border-radius-size);
+  border-right: 0px;
+}
+
+.text-fields > input[name='rus-word'] {
+  border-top-right-radius: var(--border-radius-size);
+  border-bottom-right-radius: var(--border-radius-size);
+}
+
+.text-fields > input:focus {
+  outline: none;
+  background: var(--emphasize-color);
+}
+
+.submit-wrapper {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.addWord-complexity {
+  border-radius: var(--border-radius-size);
+  border: 2px solid var(--primary-color);
+  margin-right: 10px;
+}
+
+.addWord-complexity:focus {
+  outline: none;
+  border-color: var(--primary-color-highlighted);
+}
+
+.addWord-button {
   cursor: pointer;
+  border: none;
+  border-radius: var(--border-radius-size);
+  background-color: var(--primary-color);
+  color: var(--light-text-color);
+  transition: all .2s ease;
+}
+
+.addWord-button:hover {
+  background-color: var(--primary-color-highlighted);
+  color: var(--dark-text-color);
+}
+
+.addWord-button:focus {
+  outline: none;
+  background-color: var(--primary-color-highlighted);
+  color: var(--dark-text-color);
+}
+
+@media screen and (max-width: 576px) {
+  .text-fields > * {
+    width: 50%;
+    /* max-width: 300px; */
+  }
+
+  .text-fields {
+    padding: 0px;
+  }
 }

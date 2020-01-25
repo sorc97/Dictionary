@@ -1,0 +1,11 @@
+.header {
+  position: relative;
+  text-align: right;
+}
+
+@media screen and (max-width: 576px) {
+  .header {
+    text-align: center;
+    padding-top: 70px;
+  }
+}

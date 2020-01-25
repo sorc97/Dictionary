@@ -2,10 +2,10 @@ import React from 'react'
 import { ComplexityContainer } from './Containers'
 
 const Complexities = () =>
-  <div className='complexity-wrapper'>
+  <main className='complexities'>
     <ComplexityContainer title='hard' />
     <ComplexityContainer title='medium' />
     <ComplexityContainer title='easy' />
-  </div>
+  </main>
 
 export default Complexities

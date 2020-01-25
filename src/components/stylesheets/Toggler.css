@@ -19,4 +19,5 @@
 
 .addingToggler:focus {
   outline: none;
+  background-color: var(--primary-color-highlighted);
 }

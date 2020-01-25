@@ -4,19 +4,24 @@
 }
 
 .changeLang-button{
-  padding: 10px 20px;
+  min-width: 200px;
+  padding: 15px 5px;
   /* background-color: #fff; */
   /* border: 2px solid rgba(223, 220, 220, 0.719); */
+  background-color: var(--primary-color);
   border: none;
-  background-color: #2196F3;
   cursor: pointer;
   font-size: 18px;
   transition: all .3s ease;
-  color: #fff;
+  color: var(--light-text-color);
+  border-radius: var(--border-radius-size);
+  margin-right: 10px;
 }
 
 .changeLang-button:focus{
   outline: none;
+  color: #004289;
+  background: #dae1e8;
 }
 
 .changeLang-button:hover{
@@ -27,13 +32,13 @@
   background: #dae1e8;
 }
 
-.changeLang-button:nth-of-type(1) {
-  /* border-right: 0px; */
-  border-right: 2px solid #3f51b5;
+.changeLang-button:last-of-type {
+  margin-right: 0;
 }
 
-@media screen and (max-width: 575px) {
+@media screen and (max-width: 576px) {
   .changeLang-button{
-    width: 50%;
+    min-width: auto;
+    width: 48%;
   }
 }

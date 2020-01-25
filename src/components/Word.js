@@ -33,18 +33,21 @@ class Word extends Component {
     const { eng, rus, currentLang, onChange } = this.props;
 
     return (
-      <li
-        className={
-          (currentLang === 'eng') ?
-            'word english' :
-            'word russian'
-        }
-        onClick={onChange}
-        onContextMenu={this.setContext}
-      >
-        {
-          (currentLang === 'eng') ? eng : rus
-        }
+      <li className='words-item'>
+        <button
+          type='button'
+          className={
+            (currentLang === 'eng') ?
+              'word english' :
+              'word russian'
+          }
+          onClick={onChange}
+          onContextMenu={this.setContext}
+        >
+          {
+            (currentLang === 'eng') ? eng : rus
+          }
+        </button>
       </li>
     )
   }

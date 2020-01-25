@@ -1,3 +1,23 @@
+:root {
+  /* Colors */
+  --primary-color: #2196F3;
+  /* --primary-color: #086788; */
+  --primary-color-highlighted: #2094f35e;
+  /* --emphasize-color: aliceblue; */
+  /* --emphasize-color: #cfe8ff; */
+  --emphasize-color: #87bfff38;
+  --secondary-color: ;
+  --dark-text-color: #000;
+  --light-text-color: #fff;
+
+  /* Other */
+  --border-radius-size: 5px;
+  /* Break points */
+  --sm-desktop: 992px;
+  --tablet: 768px;
+  --mobile: 575px;
+}
+
 *{
   box-sizing: border-box;
 }
@@ -6,15 +26,31 @@ body{
   margin: 0px;
   font-family: Arial;
   min-height: 100vh;
+  background-color: azure;
+  /* background-color: #F0FFFF; */
+  /* background-color: aliceblue; */
 }
 
 .wrapper{
   padding: 20px;
 }
 
+.empty {
+  font-size: 25px;
+  color: darkgray;
+}
+
+
+@media screen and (max-width: 576px) {
+  .wrapper{
+    padding: 10px;
+  }
+}
+
 ::-webkit-scrollbar{
-  width: 6px;
-  background-color: #d4d4d4;
+  width: 10px;
+  /* background-color: #d4d4d4; */
+  background-color: #AFD2E9;
   border-radius: 10px;      
 }
 

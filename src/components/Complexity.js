@@ -15,7 +15,7 @@ const Complexity = ({
       <h1 className='complexity-caption'>{title.toUpperCase()}</h1>
       {
         (!sortedWords.length) ?
-          <p className='complexity-empty'>
+          <p className='complexity-empty empty'>
             Empty
           </p> :
           <WordsList

@@ -4,7 +4,7 @@ import './stylesheets/PhrasesList.css'
 
 const PhrasesList = ({ phrases = [], onRemovePhrase = f => f }) =>
   (!phrases.length) ?
-    <p>No phrases in the list</p> :
+    <p className='empty'>No phrases in the list</p> :
     <div className='phrases-wrapper'>
       <ul className='phrases-list'>
         {
