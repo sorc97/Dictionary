@@ -12,7 +12,8 @@
 
 .complexity-caption{
   position: relative;
-  border-bottom: 2px solid #2196F3;
+  border-bottom: 2px solid var(--border-color);
+  color: var(--dark-text-color);
   margin-top: 0px;
 }
 

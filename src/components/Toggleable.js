@@ -1,17 +1,26 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
+import './stylesheets/Toggleable.css'
 
 const Toggleable = ({
   condition = false,
   className = "",
   children,
 }) =>
-  <div
-    hidden={condition}
-    className={className}
-  >
-    {children}
-  </div>
+  <TransitionGroup className={className}>
+    {
+      condition && (
+        <CSSTransition
+          timeout={500}
+          classNames='slide-down'
+        >
+          {children}
+        </CSSTransition>
+      )
+    }
+  </TransitionGroup>
+
 
 Toggleable.propTypes = {
   condition: PropTypes.bool,

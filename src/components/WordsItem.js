@@ -15,7 +15,7 @@ class WordsItem extends Component {
     const target = e.target;
     const selectedElement = document.querySelector('.selected');
 
-    if (selectedElement) {
+    if (selectedElement) {  // Remove selected style from previous element
       selectedElement.classList.remove('selected');
     }
     // Event coords
@@ -24,8 +24,9 @@ class WordsItem extends Component {
       y: e.clientY
     }
 
-    e.preventDefault();
-    target.classList.add('selected');
+    e.preventDefault();  // Default context menu removing
+    target.classList.add('selected');  // Apply styles to the selected element
+    // Set context menu based on the current event coords
     onSetContext(coords.x, coords.y, complexity);
   }
 

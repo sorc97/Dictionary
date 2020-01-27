@@ -1,13 +1,10 @@
 .changeLang-form{
-  /* margin-top: 20px; */
   text-align: center;
 }
 
 .changeLang-button{
   min-width: 200px;
   padding: 15px 5px;
-  /* background-color: #fff; */
-  /* border: 2px solid rgba(223, 220, 220, 0.719); */
   background-color: var(--primary-color);
   border: none;
   cursor: pointer;
@@ -18,18 +15,12 @@
   margin-right: 10px;
 }
 
-.changeLang-button:focus{
-  outline: none;
-  color: #004289;
-  background: #dae1e8;
+.changeLang-button:hover, .changeLang-button:focus{
+  background: var(--secondary-color);
 }
 
-.changeLang-button:hover{
-  /* background-color: #cccccc3d; */
-  /* color: black; */
-  color: #004289;
-  /* background: #cddeff; */
-  background: #dae1e8;
+.changeLang-button:focus {
+  outline: none;
 }
 
 .changeLang-button:last-of-type {

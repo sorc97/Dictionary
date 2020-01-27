@@ -4,9 +4,11 @@
   bottom: 0px;
   padding: 10px;
   font-size: 1.2rem;
-  border-radius: 5px;
+  border-radius: var(--border-radius-size);
   cursor: default;
-  border: 2px solid #5a5a5a;
+  border: 2px solid var(--border-color);
+  background-color: var(--secondary-color);
+  color: var(--light-text-color);
 }
 
 @media screen and (max-width: 992px) {

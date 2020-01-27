@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import './stylesheets/Form.css'
 
 const Form = ({
   handleSubmit, placeholder, button, className
@@ -18,10 +19,12 @@ const Form = ({
     _inputField.focus();
   }
 
+  const classes = ['add-form', className].join(" ");
+
   return (
     <form
       onSubmit={submit}
-      className={className}
+      className={classes}
     >
       <input
         type='text'
@@ -39,6 +42,13 @@ Form.propTypes = {
   button: PropTypes.string,
   className: PropTypes.string,
   handleSubmit: PropTypes.func,
+}
+
+Form.defaultProps = {
+  placeholder: 'Input text here',
+  button: 'Ok',
+  className: '',
+  handleSubmit: () => { },
 }
 
 export default Form

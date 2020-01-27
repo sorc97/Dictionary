@@ -1,13 +1,15 @@
 import C from './constants'
 import { v4 } from 'uuid'
 
+// Word reducer
+
 export const word = (state = {}, action) => {
   switch (action.type) {
     case C.ADD_WORD:
       return {
         id: v4(),
-        eng: action.eng.toLowerCase(),
-        rus: action.rus.toLowerCase(),
+        eng: action.eng,
+        rus: action.rus,
         currentLang: 'eng',
         complexity: action.complexity,
         phrases: [],
@@ -60,6 +62,8 @@ export const word = (state = {}, action) => {
   }
 }
 
+// Words reducer
+
 export const words = (state = [], action) => {
   switch (action.type) {
     case C.ADD_WORD:
@@ -82,6 +86,8 @@ export const words = (state = [], action) => {
       return state
   }
 }
+
+// ContextMenu reducer
 
 export const contextMenu = (
   state = {
@@ -119,6 +125,8 @@ export const contextMenu = (
       return state;
   }
 }
+
+// isAdding reducer
 
 export const isAdding = (state = false, { type }) => {
   switch(type) {

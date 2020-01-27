@@ -1,21 +1,20 @@
 :root {
   /* Colors */
-  --primary-color: #2196F3;
   --primary-color: #086788;
+  --secondary-color: #13C4A3;
   --primary-color-highlighted: #2094f35e;
-  /* --emphasize-color: aliceblue; */
-  /* --emphasize-color: #cfe8ff; */
+  --light-color: #fff;
   --emphasize-color: #87bfff38;
-  --secondary-color: ;
-  --dark-text-color: #000;
-  --light-text-color: #fff;
+  --dark-text-color: #4b4b58;
+  --light-text-color: var(--light-color);
+  --russian-word: #1d6b8696;
+  /* --russian-word: #fff9e1; */
+  /* --russian-word: #efefef; */
+  --english-word: var(--light-color);
 
-  /* Other */
+  /* Border */
   --border-radius-size: 5px;
-  /* Break points */
-  --sm-desktop: 992px;
-  --tablet: 768px;
-  --mobile: 575px;
+  --border-color: #5a5a5a;
 }
 
 *{
@@ -26,9 +25,7 @@ body{
   margin: 0px;
   font-family: Arial;
   min-height: 100vh;
-  background-color: azure;
-  /* background-color: #F0FFFF; */
-  /* background-color: aliceblue; */
+  background-color: #EAFDF8;
 }
 
 .wrapper{
@@ -40,7 +37,6 @@ body{
   color: darkgray;
 }
 
-
 @media screen and (max-width: 576px) {
   .wrapper{
     padding: 10px;
@@ -49,12 +45,11 @@ body{
 
 ::-webkit-scrollbar{
   width: 10px;
-  /* background-color: #d4d4d4; */
   background-color: #AFD2E9;
   border-radius: 10px;      
 }
 
 ::-webkit-scrollbar-thumb{
-  background-color: #2196F3;
+  background-color: var(--primary-color);
   border-radius: 10px;
 };

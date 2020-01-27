@@ -2,7 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './stylesheets/PhrasesList.css'
 
-const PhrasesList = ({ phrases = [], onRemovePhrase = f => f }) =>
+const PhrasesList = ({ 
+  phrases = [], 
+  onRemovePhrase = f => f 
+}) =>
   (!phrases.length) ?
     <p className='empty'>No phrases in the list</p> :
     <div className='phrases-wrapper'>

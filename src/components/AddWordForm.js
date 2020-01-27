@@ -3,13 +3,17 @@ import PropTypes from 'prop-types'
 import './stylesheets/AddWordForm.css'
 
 const AddWordForm = ({ onNewWord = f => f }) => {
-  let _english, _russian, _complexity;
+  let _english, _russian, _complexity;  // Access to DOM elements
 
   const submit = e => {
     e.preventDefault();
-
-    onNewWord(_english.value, _russian.value, _complexity.value);
-
+    // Get data from fields
+    let engWord = _english.value.toLowerCase().trim();
+    let rusWord = _russian.value.toLowerCase().trim();
+    let complexity = _complexity.value;
+    // Reverse data flow
+    onNewWord(engWord, rusWord, complexity);
+    // Reset form fields
     _english.value = '';
     _russian.value = '';
     _english.focus();

@@ -7,7 +7,9 @@ const Complexity = ({
   title = "unknown",
   words = [],
 }) => {
+  // Filter by complexity
   const filteredWords = words.filter(item => item.complexity === title);
+  // Sort by date
   const sortedWords = filteredWords.sort((a, b) => a.date - b.date);
   
   return (

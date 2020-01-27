@@ -130,7 +130,7 @@ export const AddToggler = connect(
 // Toggleable Adding
 export const ToggleableAdding = connect(
   ({ isAdding }, { className }) => ({
-    condition: !isAdding,
+    condition: isAdding,
     className
   })
 )(Toggleable)
@@ -140,7 +140,7 @@ export const SearchForm = withRouter(
   connect(
     ({ words }, { history }) => {
       const handleSubmit = (query) => {  // Searching function
-        const foundWord = findByTitle(words, query);
+        const foundWord = findByTitle(words, query.toLowerCase());
 
         (foundWord) ?
           history.push(`/phrases/${foundWord.id}`) :

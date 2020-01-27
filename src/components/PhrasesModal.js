@@ -4,14 +4,15 @@ import Form from './Form'
 import PhrasesList from './PhrasesList'
 import Modal from './Modal'
 import ModalError from './ModalError'
+import PhrasesHeader from './PhrasesHeader'
 import { withRouter } from 'react-router-dom'
 import './stylesheets/PhrasesModal.css'
 
 const PhrasesModal = ({
-  word = {},
+  word,
   history,
-  onNewPhrase = f => f,
-  onRemovePhrase = f => f
+  onNewPhrase,
+  onRemovePhrase
 }) => {
 
   const isWordFounded = Boolean(Object.keys(word).length);
@@ -23,12 +24,11 @@ const PhrasesModal = ({
         history={history}
       /> :
       <Modal onHideModal={() => history.replace('/')}>
-        <React.Fragment>
-          <h1 className="phrases-header">
-            <span>{word.eng}</span>
-            <br />
-            <span>{word.rus}</span>
-          </h1>
+        <>
+          <PhrasesHeader
+            word={word.eng}
+            translation={word.rus}
+          />
           <Form
             handleSubmit={phrase => onNewPhrase(phrase, word.id)}
             className='phrases-add-form'
@@ -40,7 +40,7 @@ const PhrasesModal = ({
               phrases={word.phrases}
               onRemovePhrase={(phraseIndex) => onRemovePhrase(word.id, phraseIndex)} />
           }
-        </React.Fragment>
+        </>
       </Modal>
   )
 }
@@ -50,6 +50,12 @@ PhrasesModal.propTypes = {
   history: PropTypes.object,
   onNewPhrase: PropTypes.func,
   onRemovePhrase: PropTypes.func
+}
+
+PhrasesModal.defaultProps = {
+  word: {},
+  onNewPhrase: () => { },
+  onRemovePhrase: () => { }
 }
 
 export default withRouter(PhrasesModal)

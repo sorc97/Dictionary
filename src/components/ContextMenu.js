@@ -57,17 +57,19 @@ class ContextMenu extends Component {
 
   toggleContext = () => {
     const { isHidden } = this.props.contextProps;
-    const { x, y } = this.calculateCoords();  //get current coords
+    const { x, y } = this.calculateCoords();  // Get current coords
 
-    if (isHidden) {
+    if (isHidden) {  // Meke menu invisible
       window.removeEventListener('click', this.hideMenu);
       this._menu.hidden = true;
       return;
     }
-
+    
     this._menu.hidden = isHidden;
+    // Set menu coords
     this._menu.style.left = x + 'px';
     this._menu.style.top = y + 'px';
+    // Set menu's close listener to window
     window.addEventListener('click', this.hideMenu);
   }
 
@@ -79,8 +81,7 @@ class ContextMenu extends Component {
       history
     } = this.props;
 
-    const { elemId } = contextProps;
-    console.log(select)
+    const { elemId } = contextProps;  // Context menu target id 
 
     switch (select) {
       case "remove":
@@ -114,13 +115,17 @@ class ContextMenu extends Component {
         <ul className='contextMenu-list'>
           {
             Object.keys(contextMenuItems).map((key, i) =>
-              key !== complexity &&
+              key !== complexity &&  // Remove current complexity from menu
               <li
-                className='contextMenu-item'
                 key={i}
                 onClick={() => this.handleSelect(key)}
               >
-                {contextMenuItems[key]}
+                <button
+                  type='button'
+                  className='contextMenu-item'
+                >
+                  {contextMenuItems[key]}
+                </button>
               </li>
             )
           }

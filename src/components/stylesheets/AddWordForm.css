@@ -44,6 +44,7 @@
 }
 
 .addWord-complexity {
+  background-color: #fff;
   border-radius: var(--border-radius-size);
   border: 2px solid var(--primary-color);
   margin-right: 10px;
@@ -51,7 +52,7 @@
 
 .addWord-complexity:focus {
   outline: none;
-  border-color: var(--primary-color-highlighted);
+  background-color: var(--emphasize-color);
 }
 
 .addWord-button {
@@ -63,21 +64,18 @@
   transition: all .2s ease;
 }
 
-.addWord-button:hover {
-  background-color: var(--primary-color-highlighted);
-  color: var(--dark-text-color);
+.addWord-button:hover, .addWord-button:focus {
+  background-color: var(--secondary-color);
 }
 
-.addWord-button:focus {
+.addWord-button:focus{
   outline: none;
-  background-color: var(--primary-color-highlighted);
-  color: var(--dark-text-color);
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 768px) {
   .text-fields > * {
     width: 50%;
-    /* max-width: 300px; */
+    max-width: 300px;
   }
 
   .text-fields {

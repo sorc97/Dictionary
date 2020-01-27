@@ -2,7 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './stylesheets/Modal.css'
 
-const Modal = ({ children, onHideModal }) => {
+const Modal = ({
+  children,
+  onHideModal = f => f
+}) => {
 
   const handleOverlayClick = e => {
     let target = e.target;
@@ -13,13 +16,13 @@ const Modal = ({ children, onHideModal }) => {
   }
 
   return (
-    <div 
-      className="modal-overlay" 
+    <div
+      className="modal-overlay"
       onClick={handleOverlayClick}
     >
       <div className="modal-content">
-        <div 
-          onClick={onHideModal} 
+        <div
+          onClick={onHideModal}
           className="modal-content-close"
         >
           &times;

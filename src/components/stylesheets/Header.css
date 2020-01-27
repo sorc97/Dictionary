@@ -3,7 +3,7 @@
   text-align: right;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 768px) {
   .header {
     text-align: center;
     padding-top: 70px;
