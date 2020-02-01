@@ -16,11 +16,6 @@
   border-bottom-left-radius: 5px;
 }
 
-.add-form > input[type='text']:focus {
-  outline: none;
-  background-color: var(--emphasize-color);
-}
-
 .add-form > button{
   border: 2px solid var(--primary-color);
   border-left: none;

@@ -32,11 +32,6 @@
   border-bottom-right-radius: var(--border-radius-size);
 }
 
-.text-fields > input:focus {
-  outline: none;
-  background: var(--emphasize-color);
-}
-
 .submit-wrapper {
   margin-top: 15px;
   display: flex;
@@ -52,7 +47,7 @@
 
 .addWord-complexity:focus {
   outline: none;
-  background-color: var(--emphasize-color);
+  background-color: var(--input-focus-color);
 }
 
 .addWord-button {

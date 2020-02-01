@@ -21,6 +21,4 @@ store.subscribe(() => {
   })
 })
 
-store.subscribe(() => console.log(store.getState()));
-
 export default store;

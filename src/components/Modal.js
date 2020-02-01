@@ -21,12 +21,13 @@ const Modal = ({
       onClick={handleOverlayClick}
     >
       <div className="modal-content">
-        <div
+        <button
+          type='button'
           onClick={onHideModal}
           className="modal-content-close"
         >
           &times;
-        </div>
+        </button>
         {children}
       </div>
     </div>

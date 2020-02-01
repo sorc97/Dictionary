@@ -8,9 +8,8 @@
   --dark-text-color: #4b4b58;
   --light-text-color: var(--light-color);
   --russian-word: #1d6b8696;
-  /* --russian-word: #fff9e1; */
-  /* --russian-word: #efefef; */
   --english-word: var(--light-color);
+  --input-focus-color: #e9f3ff;
 
   /* Border */
   --border-radius-size: 5px;
@@ -35,6 +34,11 @@ body{
 .empty {
   font-size: 25px;
   color: darkgray;
+}
+
+input[type='text']:focus {
+  outline: none;
+  background-color: var(--input-focus-color);
 }
 
 @media screen and (max-width: 576px) {
