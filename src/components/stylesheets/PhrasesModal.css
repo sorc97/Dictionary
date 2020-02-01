@@ -1,9 +1,0 @@
-.phrases-add-form{
-  width: 100%;
-  padding: 20px;
-}
-
-.phrases-add-form > input[type='text'] {
-  max-width: 600px;
-  min-width: 100px;
-}
