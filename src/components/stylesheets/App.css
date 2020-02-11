@@ -2,29 +2,34 @@
   /* Colors */
   --primary-color: #086788;
   --secondary-color: #13C4A3;
-  --primary-color-highlighted: #2094f35e;
+  --primary-color-highlighted: rgba(32, 148, 243, 0.369);
   --light-color: #fff;
-  --emphasize-color: #87bfff38;
+  --emphasize-color: rgba(135, 191, 255, 0.22);
   --dark-text-color: #4b4b58;
   --light-text-color: var(--light-color);
-  --russian-word: #1d6b8696;
+  --russian-word: #39bdc8;
   --english-word: var(--light-color);
   --input-focus-color: #e9f3ff;
+  --selected-word: rgba(61, 108, 184, 0.741);
 
   /* Border */
   --border-radius-size: 5px;
   --border-color: #5a5a5a;
+
+  /* Fonts */
+  --primory-font: 'Open Sans', sans-serif;
+  --secondary-font: 'Roboto', sans-serif;
 }
 
 *{
   box-sizing: border-box;
+  font-family: var(--primory-font);
 }
 
 body{
   margin: 0px;
-  font-family: Arial;
   min-height: 100vh;
-  background-color: #EAFDF8;
+  background-color: #e8ffe8;
 }
 
 .wrapper{

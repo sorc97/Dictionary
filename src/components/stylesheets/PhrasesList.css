@@ -1,18 +1,18 @@
-.phrases-wrapper{
+.phrases-wrapper {
   overflow-y: auto;
   overflow-x: hidden;
   width: 100%;
   flex-grow: 1;
 }
 
-.phrases-list{
+.phrases-list {
   list-style: none;
   padding: 0;
   margin: 0;
   text-align: center;
 }
 
-.phrases-item{
+.phrases-item {
   position: relative;
   font-size: 20px;
   padding: 15px;
@@ -21,7 +21,11 @@
   overflow: hidden;
 }
 
-.phrases-item:hover{
+.phrases-item span {
+  font-family: var(--secondary-font);
+}
+
+.phrases-item:hover {
   background-color: rgba(200, 200, 200, 0.32);
 }
 
@@ -31,7 +35,11 @@
   align-items: center;
 }
 
-.phrases-item-remove{
+.phrases-add-form input {
+  font-family: var(--secondary-font);
+}
+
+.phrases-item-remove {
   position: absolute;
   right: 0px;
   top: 0px;
@@ -44,15 +52,16 @@
   animation: slideFromRight .2s ease;
 }
 
-.phrases-item-remove:hover{
+.phrases-item-remove:hover {
   background-color: red;
 }
 
-@keyframes slideFromRight{
-  from{
+@keyframes slideFromRight {
+  from {
     right: -200px;
   }
-  to{
+
+  to {
     right: 0px;
   }
 }

@@ -6,7 +6,6 @@
   font-size: 1.2rem;
   border-radius: var(--border-radius-size);
   cursor: default;
-  border: 2px solid var(--border-color);
   background-color: var(--secondary-color);
   color: var(--light-text-color);
 }

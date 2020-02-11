@@ -25,7 +25,7 @@
 }
 
 .word.english{
-  background-color: var(--light-color);
+  background-color: var(--english-word);
 }
 
 .word.russian{
@@ -36,7 +36,7 @@
 
 .word.selected {
   transform: translateY(-4px);
-  background-color: #6e7dab91;
+  background-color: var(--selected-word);
   color: var(--light-text-color);
 }
 
